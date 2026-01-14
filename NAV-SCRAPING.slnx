@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="NAV-SCRAPING-WEB/NAV-SCRAPING.WEB.csproj" />
+  <Project Path="NAV-SCRAPING/NAV-SCRAPING.CONSOLE.csproj" />
+</Solution>

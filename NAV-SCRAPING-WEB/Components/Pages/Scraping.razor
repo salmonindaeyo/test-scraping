@@ -1,0 +1,124 @@
+@page "/"
+@using NAV_SCRAPING.WEB.Models
+@using NAV_SCRAPING.WEB.Services
+@using Radzen
+@using Radzen.Blazor
+@inject IEnumerable<INavScraper> Scrapers
+@inject ExcelExportService ExcelService
+@inject IJSRuntime JS
+@inject NotificationService Notification
+@inject ILogger<Scraping> Logger
+
+<PageTitle>NAV Scraping</PageTitle>
+
+<RadzenStack Gap="2rem">
+    <RadzenText TextStyle="TextStyle.H2" TagName="TagName.H1" Style="color: var(--rz-primary)">NAV Scraping Dashboard</RadzenText>
+
+    <RadzenCard>
+        <RadzenText TextStyle="TextStyle.H5">Available Sources</RadzenText>
+        <RadzenDataGrid Data="@Scrapers" TItem="INavScraper" AllowColumnResize="true">
+            <Columns>
+                <RadzenDataGridColumn TItem="INavScraper" Property="Name" Title="Source Name" Width="200px" />
+                <RadzenDataGridColumn TItem="INavScraper" Title="Link">
+                    <Template Context="scraper">
+                        <a href="@scraper.Url" target="_blank" style="color: var(--rz-primary)">@scraper.Url</a>
+                    </Template>
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="INavScraper" Title="Action" Width="150px" TextAlign="TextAlign.Center">
+                    <Template Context="scraper">
+                        <RadzenButton Text="Load Data" Icon="cloud_download" 
+                                      Click="@(args => LoadDataAsync(scraper))" 
+                                      IsBusy="@IsLoading(scraper)" 
+                                      ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Small" />
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+        </RadzenDataGrid>
+    </RadzenCard>
+
+    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.SpaceBetween">
+         <RadzenText TextStyle="TextStyle.H5">Scraped Data (@(funds.Count) records)</RadzenText>
+         <RadzenButton Text="Export Excel" Icon="save" Click="@ExportAsync" Disabled="@(!funds.Any())" ButtonStyle="ButtonStyle.Secondary" />
+    </RadzenStack>
+
+    <RadzenDataGrid Data="@funds" TItem="FundData" AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Simple" AllowSorting="true" PageSize="10" AllowPaging="true" ShowPagingSummary="true" Visible="@funds.Any()">
+        <Columns>
+            <RadzenDataGridColumn TItem="FundData" Property="Source" Title="Source" Width="150px" />
+            <RadzenDataGridColumn TItem="FundData" Property="Category" Title="Category" Width="200px" />
+            <RadzenDataGridColumn TItem="FundData" Property="FundName" Title="Fund Name" />
+            <RadzenDataGridColumn TItem="FundData" Property="ShortName" Title="Short Name" Width="120px" />
+            <RadzenDataGridColumn TItem="FundData" Property="Currency" Title="Currency" Width="100px" />
+            <RadzenDataGridColumn TItem="FundData" Property="NAV" Title="NAV" FormatString="{0:N4}" Width="100px" />
+            <RadzenDataGridColumn TItem="FundData" Property="Offer" Title="Offer" FormatString="{0:N4}" Width="100px" />
+            <RadzenDataGridColumn TItem="FundData" Property="Bid" Title="Bid" FormatString="{0:N4}" Width="100px" />
+            <RadzenDataGridColumn TItem="FundData" Property="TotalNetAsset" Title="Total Net Asset" FormatString="{0:N2}" Width="150px" />
+            <RadzenDataGridColumn TItem="FundData" Property="Change" Title="Change" FormatString="{0:N4}" Width="100px">
+                <Template Context="data">
+                    <span style='color: @(data.Change >= 0 ? "green" : "red")'>@data.Change?.ToString("N4")</span>
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FundData" Property="ChangePercent" Title="% Change" FormatString="{0:N4}%" Width="100px">
+                <Template Context="data">
+                     <span style='color: @(data.ChangePercent >= 0 ? "green" : "red")'>@data.ChangePercent?.ToString("N4")%</span>
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="FundData" Property="Date" Title="Date" FormatString="{0:dd/MM/yyyy}" Width="120px" />
+        </Columns>
+    </RadzenDataGrid>
+</RadzenStack>
+
+@code {
+    private List<FundData> funds = new();
+    private Dictionary<string, bool> loadingStates = new();
+
+    private bool IsLoading(INavScraper scraper) => loadingStates.ContainsKey(scraper.Name) && loadingStates[scraper.Name];
+
+    private async Task LoadDataAsync(INavScraper scraper)
+    {
+        if (IsLoading(scraper)) return;
+
+        Logger.LogInformation("Starting load for {Scraper}", scraper.Name);
+        loadingStates[scraper.Name] = true;
+        StateHasChanged(); // Force UI update to show loading spinner
+        
+        try
+        {
+            var result = await scraper.ScrapeAsync();
+            Logger.LogInformation("Loaded {Count} records from {Scraper}", result.Count, scraper.Name);
+            
+            // Remove existing for this source if re-scraping to avoid duplicates from same source
+            funds.RemoveAll(f => f.Source == scraper.Name);
+            funds.AddRange(result);
+            
+            Notification.Notify(NotificationSeverity.Success, "Scraping Completed", $"Loaded {result.Count} records from {scraper.Name}");
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Failed to load {Scraper}", scraper.Name);
+            Notification.Notify(NotificationSeverity.Error, "Error", $"Failed to load {scraper.Name}: {ex.Message}");
+        }
+        finally
+        {
+            loadingStates[scraper.Name] = false;
+            StateHasChanged(); 
+        }
+    }
+
+    private async Task ExportAsync()
+    {
+        if (!funds.Any()) return;
+
+        try
+        {
+            var bytes = ExcelService.ExportToExcel(funds);
+            var base64 = Convert.ToBase64String(bytes);
+            var fileName = $"NavData_{DateTime.Now:yyyyMMdd_HHmm}.xlsx";
+            await JS.InvokeVoidAsync("saveAsFile", fileName, base64);
+            Notification.Notify(NotificationSeverity.Success, "Export Successful", "File downloaded.");
+        }
+        catch (Exception ex)
+        {
+            Notification.Notify(NotificationSeverity.Error, "Export Error", ex.Message);
+        }
+    }
+}

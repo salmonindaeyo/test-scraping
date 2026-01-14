@@ -1,0 +1,295 @@
+
+// using System.Globalization;
+// using System.Net;
+// using System.Net.Http;
+// using System.Text;
+// using System.Text.RegularExpressions;
+// using CsvHelper;
+// using CsvHelper.Configuration;
+// using HtmlAgilityPack;
+
+// class Program
+// {
+//     private const string NavUrlBase = "https://nav.talisam.co.th/";
+//     private const string NavUrl = "https://nav.talisam.co.th/index_NAV_Sum.jsp?p_lang=EN"; // เปลี่ยนเป็น TH ได้
+
+//     static async Task Main()
+//     {
+//         var handler = new HttpClientHandler
+//         {
+//             AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate | DecompressionMethods.Brotli,
+//             UseCookies = true,
+//             AllowAutoRedirect = true
+//         };
+
+//         using var client = new HttpClient(handler);
+//         SetDefaultHeaders(client);
+
+//         // 1) Pre-warm: เข้า root เพื่อรับคุกกี้/เงื่อนไขเบื้องต้น
+//         Console.WriteLine("Pre-warming session...");
+//         await SafeGetAsync(client, NavUrlBase);
+
+//         // 2) ยิงไปยัง JSP พร้อม Referer
+//         Console.WriteLine($"Fetching: {NavUrl}");
+//         var html = await FetchWithAntiLockAsync(client, NavUrl, referer: "https://www.talisam.co.th/nav/");
+
+//         if (string.IsNullOrWhiteSpace(html))
+//         {
+//             Console.WriteLine("ยังดึงหน้าไม่ได้ (empty HTML). ลองเปิดด้วย Selenium/Playwright เป็นทางเลือกสุดท้าย");
+//             return;
+//         }
+
+//         // 3) พาร์สทุกตารางบนหน้า
+//         var doc = new HtmlDocument();
+//         doc.LoadHtml(html);
+
+//         var tables = doc.DocumentNode.SelectNodes("//table");
+//         if (tables == null || tables.Count == 0)
+//         {
+//             Console.WriteLine("ไม่พบตารางบนหน้า NAV");
+//             return;
+//         }
+
+//         var allRows = new List<FundRow>();
+
+//         foreach (var table in tables)
+//         {
+//             var category = FindNearestCategoryText(table);
+//             var headerMap = BuildHeaderMap(table);
+//             if (headerMap.Count == 0) continue;
+
+//             var bodyRows = table.SelectNodes(".//tbody/tr");
+//             if (bodyRows == null) continue;
+//             Console.WriteLine(bodyRows);
+//             foreach (var tr in bodyRows)
+//             {
+//                 var tds = tr.SelectNodes("./td|./th");
+//                 if (tds == null || tds.Count == 0) continue;
+
+//                 var row = new FundRow
+//                 {
+//                     Category = category,
+//                     FundName = GetByHeader(tds, headerMap, "Fund Name", "กองทุน"),
+//                     ShortName = GetByHeader(tds, headerMap, "Short Name", "ชื่อย่อ"),
+//                     NAV = GetByHeader(tds, headerMap, "NAV", "มูลค่าหน่วยลงทุน"),
+//                     TotalNAV = GetByHeader(tds, headerMap, "Total Net Asset Value", "มูลค่าทรัพย์สินสุทธิ"),
+//                     Offer = GetByHeader(tds, headerMap, "Offer", "ราคาขาย"),
+//                     Bid = GetByHeader(tds, headerMap, "Bid", "ราคาซื้อคืน"),
+//                     Change = GetByHeader(tds, headerMap, "Change", "เปลี่ยนแปลง"),
+//                     PercentChange = GetByHeader(tds, headerMap, "%Change", "%เปลี่ยนแปลง"),
+//                     Date = GetByHeader(tds, headerMap, "Date", "วันที่"),
+//                     Source = NavUrl
+//                 };
+
+//                 if (!string.IsNullOrWhiteSpace(row.ShortName) || !string.IsNullOrWhiteSpace(row.FundName))
+//                 {
+//                     row.NAV = NormalizeNumber(row.NAV);
+//                     row.TotalNAV = NormalizeNumber(row.TotalNAV);
+//                     row.Offer = NormalizeNumber(row.Offer);
+//                     row.Bid = NormalizeNumber(row.Bid);
+//                     row.Change = NormalizeNumber(row.Change);
+//                     row.PercentChange = NormalizePercent(row.PercentChange);
+
+//                     allRows.Add(row);
+//                 }
+//             }
+//         }
+
+//         // 4) บันทึก CSV
+//         var outPath = $"talis_daily_nav_{DateTime.Now:yyyyMMdd}.csv";
+//         var conf = new CsvConfiguration(CultureInfo.InvariantCulture)
+//         {
+//             Encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: true),
+//             HasHeaderRecord = true
+//         };
+
+//         using (var writer = new StreamWriter(outPath, false, conf.Encoding))
+//         using (var csv = new CsvWriter(writer, conf))
+//         {
+//             csv.WriteHeader<FundRow>();
+//             csv.NextRecord();
+//             foreach (var r in allRows)
+//             {
+//                 csv.WriteRecord(r);
+//                 csv.NextRecord();
+//             }
+//         }
+
+//         Console.WriteLine($"Saved {allRows.Count} rows -> {outPath}");
+//     }
+
+//     // =================== Networking Helpers ===================
+
+//     static void SetDefaultHeaders(HttpClient client)
+//     {
+//         client.DefaultRequestHeaders.Clear();
+//         client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent",
+//             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+//             "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+//         client.DefaultRequestHeaders.TryAddWithoutValidation("Accept",
+//             "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+//         client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Language",
+//             "en-US,en;q=0.9,th;q=0.8");
+//         client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding",
+//             "gzip, deflate, br");
+//         client.DefaultRequestHeaders.ConnectionClose = false;
+//     }
+
+//     static async Task<string?> SafeGetAsync(HttpClient client, string url)
+//     {
+//         using var req = new HttpRequestMessage(HttpMethod.Get, url);
+//         req.Headers.TryAddWithoutValidation("Upgrade-Insecure-Requests", "1");
+//         var resp = await client.SendAsync(req);
+//         // ไม่ EnsureSuccess เพื่อดูสถานะ/คุกกี้ก่อน
+//         if ((int)resp.StatusCode == 423)
+//         {
+//             Console.WriteLine("Got 423 Locked (pre-warm). จะลองรอและ retry...");
+//             await RespectRetryAfter(resp);
+//             return null;
+//         }
+//         return await resp.Content.ReadAsStringAsync();
+//     }
+
+//     static async Task<string?> FetchWithAntiLockAsync(HttpClient client, string url, string? referer = null)
+//     {
+//         for (int attempt = 1; attempt <= 3; attempt++)
+//         {
+//             using var req = new HttpRequestMessage(HttpMethod.Get, AppendCacheBuster(url, attempt));
+//             req.Headers.TryAddWithoutValidation("Upgrade-Insecure-Requests", "1");
+//             if (!string.IsNullOrWhiteSpace(referer))
+//                 req.Headers.Referrer = new Uri(referer);
+
+//             var resp = await client.SendAsync(req);
+//             if ((int)resp.StatusCode == 423)
+//             {
+//                 Console.WriteLine($"Attempt {attempt}: 423 Locked. รอแล้วลองใหม่...");
+//                 await RespectRetryAfter(resp);
+//                 continue;
+//             }
+//             resp.EnsureSuccessStatusCode(); // โยนถ้า 4xx/5xx อื่น
+//             return await resp.Content.ReadAsStringAsync();
+//         }
+//         return null;
+//     }
+
+//     static async Task RespectRetryAfter(HttpResponseMessage resp)
+//     {
+//         // ถ้ามี Retry-After ก็รอตามนั้น (วินาที); ถ้าไม่มีก็รอ 2 วินาที
+//         if (resp.Headers.RetryAfter?.Delta is TimeSpan delta && delta.TotalSeconds > 0)
+//         {
+//             await Task.Delay(delta);
+//         }
+//         else
+//         {
+//             await Task.Delay(2000);
+//         }
+//     }
+
+//     static string AppendCacheBuster(string url, int attempt)
+//     {
+//         var sep = url.Contains("?") ? "&" : "?";
+//         var ts = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+//         return $"{url}{sep}_={ts}_{attempt}";
+//     }
+
+//     // =================== Parsing Helpers ===================
+
+//     static string FindNearestCategoryText(HtmlNode table)
+//     {
+//         var prev = table.PreviousSibling;
+//         while (prev != null)
+//         {
+//             var textCandidate = ExtractHeadingText(prev);
+//             if (!string.IsNullOrWhiteSpace(textCandidate) && IsCategoryHeading(textCandidate))
+//                 return textCandidate;
+//             prev = prev.PreviousSibling;
+//         }
+
+//         var parent = table.ParentNode;
+//         while (parent != null)
+//         {
+//             var heading = parent.SelectSingleNode(".//preceding-sibling::*[self::h2 or self::h3 or self::h4 or contains(@class,'heading')][1]");
+//             var textCandidate = ExtractHeadingText(heading);
+//             if (!string.IsNullOrWhiteSpace(textCandidate) && IsCategoryHeading(textCandidate))
+//                 return textCandidate;
+//             parent = parent.ParentNode;
+//         }
+//         return "";
+//     }
+
+//     static string ExtractHeadingText(HtmlNode? node)
+//     {
+//         if (node == null) return "";
+//         var t = HtmlEntity.DeEntitize(node.InnerText ?? "").Trim();
+//         t = Regex.Replace(t, @"\\s+", " ");
+//         return t;
+//     }
+
+//     static bool IsCategoryHeading(string text)
+//     {
+//         if (string.IsNullOrWhiteSpace(text)) return false;
+//         string[] keywords = {
+//             // EN
+//             "Money Market", "Mixed Fund", "Equity Fund", "Foreign Investment Fund",
+//             "Retirement Mutual Fund", "Super Saving Fund", "Thai ESG",
+//             // TH
+//             "กองทุนรวมตลาดเงิน","กองทุนรวมผสม","กองทุนหุ้น",
+//             "กองทุนรวมที่ลงทุนในต่างประเทศ","กองทุนรวมเพื่อการเลี้ยงชีพ",
+//             "กองทุนรวมเพื่อการออม","กองทุนรวมไทยเพื่อความยั่งยืน"
+//         };
+//         return keywords.Any(k => text.Contains(k, StringComparison.OrdinalIgnoreCase));
+//     }
+
+//     static Dictionary<int, string> BuildHeaderMap(HtmlNode table)
+//     {
+//         var map = new Dictionary<int, string>();
+//         var headerRow = table.SelectSingleNode(".//thead/tr") ?? table.SelectSingleNode(".//tr[1]");
+//         var cells = headerRow?.SelectNodes("./th|./td");
+//         if (cells == null) return map;
+
+//         for (int i = 0; i < cells.Count; i++)
+//         {
+//             var name = HtmlEntity.DeEntitize(cells[i].InnerText ?? "").Trim();
+//             name = Regex.Replace(name, @"\\s+", " ");
+//             map[i] = name;
+//         }
+//         return map;
+//     }
+
+//     static string GetByHeader(HtmlNodeCollection tds, Dictionary<int, string> headerMap, params string[] keys)
+//     {
+//         foreach (var kv in headerMap)
+//         {
+//             var header = kv.Value;
+//             if (keys.Any(k => header.Contains(k, StringComparison.OrdinalIgnoreCase)))
+//             {
+//                 var idx = kv.Key;
+//                 if (idx < tds.Count)
+//                 {
+//                     var val = HtmlEntity.DeEntitize(tds[idx].InnerText ?? "").Trim();
+//                     val = Regex.Replace(val, @"\\s+", " ");
+//                     return val;
+//                 }
+//             }
+//         }
+//         return "";
+//     }
+
+//     static string NormalizeNumber(string s) => s.Replace(",", "").Trim();
+//     static string NormalizePercent(string s) => s.Replace("%", "").Trim();
+// }
+
+// public class FundRow
+// {
+//     public string Category { get; set; } = "";
+//     public string FundName { get; set; } = "";
+//     public string ShortName { get; set; } = "";
+//     public string NAV { get; set; } = "";
+//     public string TotalNAV { get; set; } = "";
+//     public string Offer { get; set; } = "";
+//     public string Bid { get; set; } = "";
+//     public string Change { get; set; } = "";
+//     public string PercentChange { get; set; } = "";
+//     public string Date { get; set; } = "";
+//     public string Source { get; set; } = "";
+// }

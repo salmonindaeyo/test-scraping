@@ -1,0 +1,3842 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <!--[if IE
+      ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+  <link rel="profile" href="http://gmpg.org/xfn/11" />
+  <link rel="pingback" href="/xmlrpc.php" />
+
+  <link rel="shortcut icon" type="image/x-icon" />
+  <link rel="apple-touch-icon" />
+  <link rel="apple-touch-icon" sizes="120x120" />
+  <link rel="apple-touch-icon" sizes="76x76" />
+  <link rel="apple-touch-icon" sizes="152x152" />
+  <title>มูลค่าหน่วยลงทุน &#8211; MFC</title>
+  <meta name="robots" content="max-image-preview:large" />
+  <link rel="dns-prefetch" href="//use.fontawesome.com" />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//s.w.org" />
+  <link href="https://fonts.gstatic.com/" crossorigin rel="preconnect" />
+  <link rel="alternate" type="application/rss+xml" title="MFC &raquo; ฟีด" href="/feed/" />
+  <link rel="alternate" type="application/rss+xml" title="MFC &raquo; ฟีดความเห็น" href="/comments/feed/" />
+
+  <!-- My Css -->
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="./unit-value.style.css" />
+  <link rel="stylesheet" href="../assets/modules/loader.style.css" />
+  <link rel="stylesheet" href="../slick/slick-theme.css" />
+  <link rel="stylesheet" href="../slick/slick.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Jquery -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/datatables.min.css" />
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.12.1/datatables.min.js"></script>
+
+  <script>
+    window._wpemojiSettings = {
+      baseUrl: "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/",
+      ext: ".png",
+      svgUrl: "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/",
+      svgExt: ".svg",
+      source: {
+        concatemoji:
+          "https:\/\/mfcfund.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.0.2",
+      },
+    };
+    /*! This file is auto-generated */
+    !(function (e, a, t) {
+      var n,
+        r,
+        o,
+        i = a.createElement("canvas"),
+        p = i.getContext && i.getContext("2d");
+      function s(e, t) {
+        var a = String.fromCharCode,
+          e =
+            (p.clearRect(0, 0, i.width, i.height),
+              p.fillText(a.apply(this, e), 0, 0),
+              i.toDataURL());
+        return (
+          p.clearRect(0, 0, i.width, i.height),
+          p.fillText(a.apply(this, t), 0, 0),
+          e === i.toDataURL()
+        );
+      }
+      function c(e) {
+        var t = a.createElement("script");
+        (t.src = e),
+          (t.defer = t.type = "text/javascript"),
+          a.getElementsByTagName("head")[0].appendChild(t);
+      }
+      for (
+        o = Array("flag", "emoji"),
+        t.supports = { everything: !0, everythingExceptFlag: !0 },
+        r = 0;
+        r < o.length;
+        r++
+      )
+        (t.supports[o[r]] = (function (e) {
+          if (!p || !p.fillText) return !1;
+          switch (
+          ((p.textBaseline = "top"), (p.font = "600 32px Arial"), e)
+          ) {
+            case "flag":
+              return s(
+                [127987, 65039, 8205, 9895, 65039],
+                [127987, 65039, 8203, 9895, 65039]
+              )
+                ? !1
+                : !s(
+                  [55356, 56826, 55356, 56819],
+                  [55356, 56826, 8203, 55356, 56819]
+                ) &&
+                !s(
+                  [
+                    55356, 57332, 56128, 56423, 56128, 56418, 56128,
+                    56421, 56128, 56430, 56128, 56423, 56128, 56447,
+                  ],
+                  [
+                    55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418,
+                    8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128,
+                    56423, 8203, 56128, 56447,
+                  ]
+                );
+            case "emoji":
+              return !s(
+                [129777, 127995, 8205, 129778, 127999],
+                [129777, 127995, 8203, 129778, 127999]
+              );
+          }
+          return !1;
+        })(o[r])),
+          (t.supports.everything = t.supports.everything && t.supports[o[r]]),
+          "flag" !== o[r] &&
+          (t.supports.everythingExceptFlag =
+            t.supports.everythingExceptFlag && t.supports[o[r]]);
+      (t.supports.everythingExceptFlag =
+        t.supports.everythingExceptFlag && !t.supports.flag),
+        (t.DOMReady = !1),
+        (t.readyCallback = function () {
+          t.DOMReady = !0;
+        }),
+        t.supports.everything ||
+        ((n = function () {
+          t.readyCallback();
+        }),
+          a.addEventListener
+            ? (a.addEventListener("DOMContentLoaded", n, !1),
+              e.addEventListener("load", n, !1))
+            : (e.attachEvent("onload", n),
+              a.attachEvent("onreadystatechange", function () {
+                "complete" === a.readyState && t.readyCallback();
+              })),
+          (e = t.source || {}).concatemoji
+            ? c(e.concatemoji)
+            : e.wpemoji && e.twemoji && (c(e.twemoji), c(e.wpemoji)));
+    })(window, document, window._wpemojiSettings);
+  </script>
+  <style>
+    img.wp-smiley,
+    img.emoji {
+      display: inline !important;
+      border: none !important;
+      box-shadow: none !important;
+      height: 1em !important;
+      width: 1em !important;
+      margin: 0 0.07em !important;
+      vertical-align: -0.1em !important;
+      background: none !important;
+      padding: 0 !important;
+    }
+  </style>
+  <link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=6.0.2"
+    media="all" />
+  <style id="wp-block-library-theme-inline-css">
+    .wp-block-audio figcaption {
+      color: #555;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .is-dark-theme .wp-block-audio figcaption {
+      color: hsla(0, 0%, 100%, 0.65);
+    }
+
+    .wp-block-code {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Menlo, Consolas, monaco, monospace;
+      padding: 0.8em 1em;
+    }
+
+    .wp-block-embed figcaption {
+      color: #555;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .is-dark-theme .wp-block-embed figcaption {
+      color: hsla(0, 0%, 100%, 0.65);
+    }
+
+    .blocks-gallery-caption {
+      color: #555;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .is-dark-theme .blocks-gallery-caption {
+      color: hsla(0, 0%, 100%, 0.65);
+    }
+
+    .wp-block-image figcaption {
+      color: #555;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .is-dark-theme .wp-block-image figcaption {
+      color: hsla(0, 0%, 100%, 0.65);
+    }
+
+    .wp-block-pullquote {
+      border-top: 4px solid;
+      border-bottom: 4px solid;
+      margin-bottom: 1.75em;
+      color: currentColor;
+    }
+
+    .wp-block-pullquote__citation,
+    .wp-block-pullquote cite,
+    .wp-block-pullquote footer {
+      color: currentColor;
+      text-transform: uppercase;
+      font-size: 0.8125em;
+      font-style: normal;
+    }
+
+    .wp-block-quote {
+      border-left: 0.25em solid;
+      margin: 0 0 1.75em;
+      padding-left: 1em;
+    }
+
+    .wp-block-quote cite,
+    .wp-block-quote footer {
+      color: currentColor;
+      font-size: 0.8125em;
+      position: relative;
+      font-style: normal;
+    }
+
+    .wp-block-quote.has-text-align-right {
+      border-left: none;
+      border-right: 0.25em solid;
+      padding-left: 0;
+      padding-right: 1em;
+    }
+
+    .wp-block-quote.has-text-align-center {
+      border: none;
+      padding-left: 0;
+    }
+
+    .wp-block-quote.is-large,
+    .wp-block-quote.is-style-large,
+    .wp-block-quote.is-style-plain {
+      border: none;
+    }
+
+    .wp-block-search .wp-block-search__label {
+      font-weight: 700;
+    }
+
+    :where(.wp-block-group.has-background) {
+      padding: 1.25em 2.375em;
+    }
+
+    .wp-block-separator.has-css-opacity {
+      opacity: 0.4;
+    }
+
+    .wp-block-separator {
+      border: none;
+      border-bottom: 2px solid;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .wp-block-separator.has-alpha-channel-opacity {
+      opacity: 1;
+    }
+
+    .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+      width: 100px;
+    }
+
+    .wp-block-separator.has-background:not(.is-style-dots) {
+      border-bottom: none;
+      height: 1px;
+    }
+
+    .wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots) {
+      height: 2px;
+    }
+
+    .wp-block-table thead {
+      border-bottom: 3px solid;
+    }
+
+    .wp-block-table tfoot {
+      border-top: 3px solid;
+    }
+
+    .wp-block-table td,
+    .wp-block-table th {
+      padding: 0.5em;
+      border: 1px solid;
+      word-break: normal;
+    }
+
+    .wp-block-table figcaption {
+      color: #555;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .is-dark-theme .wp-block-table figcaption {
+      color: hsla(0, 0%, 100%, 0.65);
+    }
+
+    .wp-block-video figcaption {
+      color: #555;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .is-dark-theme .wp-block-video figcaption {
+      color: hsla(0, 0%, 100%, 0.65);
+    }
+
+    .wp-block-template-part.has-background {
+      padding: 1.25em 2.375em;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  </style>
+  <style id="global-styles-inline-css">
+    body {
+      --wp--preset--color--black: #000000;
+      --wp--preset--color--cyan-bluish-gray: #abb8c3;
+      --wp--preset--color--white: #ffffff;
+      --wp--preset--color--pale-pink: #f78da7;
+      --wp--preset--color--vivid-red: #cf2e2e;
+      --wp--preset--color--luminous-vivid-orange: #ff6900;
+      --wp--preset--color--luminous-vivid-amber: #fcb900;
+      --wp--preset--color--light-green-cyan: #7bdcb5;
+      --wp--preset--color--vivid-green-cyan: #00d084;
+      --wp--preset--color--pale-cyan-blue: #8ed1fc;
+      --wp--preset--color--vivid-cyan-blue: #0693e3;
+      --wp--preset--color--vivid-purple: #9b51e0;
+      --wp--preset--color--primary: #af1217;
+      --wp--preset--color--secondary: #af1217;
+      --wp--preset--color--tertiary: #af1217;
+      --wp--preset--color--quaternary: #383f48;
+      --wp--preset--color--dark: #212529;
+      --wp--preset--color--light: #ffffff;
+      --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,
+          rgba(6, 147, 227, 1) 0%,
+          rgb(155, 81, 224) 100%);
+      --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,
+          rgb(122, 220, 180) 0%,
+          rgb(0, 208, 130) 100%);
+      --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,
+          rgba(252, 185, 0, 1) 0%,
+          rgba(255, 105, 0, 1) 100%);
+      --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,
+          rgba(255, 105, 0, 1) 0%,
+          rgb(207, 46, 46) 100%);
+      --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,
+          rgb(238, 238, 238) 0%,
+          rgb(169, 184, 195) 100%);
+      --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,
+          rgb(74, 234, 220) 0%,
+          rgb(151, 120, 209) 20%,
+          rgb(207, 42, 186) 40%,
+          rgb(238, 44, 130) 60%,
+          rgb(251, 105, 98) 80%,
+          rgb(254, 248, 76) 100%);
+      --wp--preset--gradient--blush-light-purple: linear-gradient(135deg,
+          rgb(255, 206, 236) 0%,
+          rgb(152, 150, 240) 100%);
+      --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,
+          rgb(254, 205, 165) 0%,
+          rgb(254, 45, 45) 50%,
+          rgb(107, 0, 62) 100%);
+      --wp--preset--gradient--luminous-dusk: linear-gradient(135deg,
+          rgb(255, 203, 112) 0%,
+          rgb(199, 81, 192) 50%,
+          rgb(65, 88, 208) 100%);
+      --wp--preset--gradient--pale-ocean: linear-gradient(135deg,
+          rgb(255, 245, 203) 0%,
+          rgb(182, 227, 212) 50%,
+          rgb(51, 167, 181) 100%);
+      --wp--preset--gradient--electric-grass: linear-gradient(135deg,
+          rgb(202, 248, 128) 0%,
+          rgb(113, 206, 126) 100%);
+      --wp--preset--gradient--midnight: linear-gradient(135deg,
+          rgb(2, 3, 129) 0%,
+          rgb(40, 116, 252) 100%);
+      --wp--preset--duotone--dark-grayscale: url("#wp-duotone-dark-grayscale");
+      --wp--preset--duotone--grayscale: url("#wp-duotone-grayscale");
+      --wp--preset--duotone--purple-yellow: url("#wp-duotone-purple-yellow");
+      --wp--preset--duotone--blue-red: url("#wp-duotone-blue-red");
+      --wp--preset--duotone--midnight: url("#wp-duotone-midnight");
+      --wp--preset--duotone--magenta-yellow: url("#wp-duotone-magenta-yellow");
+      --wp--preset--duotone--purple-green: url("#wp-duotone-purple-green");
+      --wp--preset--duotone--blue-orange: url("#wp-duotone-blue-orange");
+      --wp--preset--font-size--small: 13px;
+      --wp--preset--font-size--medium: 20px;
+      --wp--preset--font-size--large: 36px;
+      --wp--preset--font-size--x-large: 42px;
+    }
+
+    .has-black-color {
+      color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-color {
+      color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-color {
+      color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-color {
+      color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-color {
+      color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-color {
+      color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-color {
+      color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-color {
+      color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-color {
+      color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-color {
+      color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-color {
+      color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-color {
+      color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-background-color {
+      background-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-background-color {
+      background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-background-color {
+      background-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-background-color {
+      background-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-background-color {
+      background-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-background-color {
+      background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-background-color {
+      background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-background-color {
+      background-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-background-color {
+      background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-background-color {
+      background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-background-color {
+      background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-background-color {
+      background-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-border-color {
+      border-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-border-color {
+      border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-border-color {
+      border-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-border-color {
+      border-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-border-color {
+      border-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-border-color {
+      border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-border-color {
+      border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-border-color {
+      border-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-border-color {
+      border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-border-color {
+      border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-border-color {
+      border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-border-color {
+      border-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+      background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+    }
+
+    .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+      background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+    }
+
+    .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+      background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+      background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+    }
+
+    .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+      background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+    }
+
+    .has-cool-to-warm-spectrum-gradient-background {
+      background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+    }
+
+    .has-blush-light-purple-gradient-background {
+      background: var(--wp--preset--gradient--blush-light-purple) !important;
+    }
+
+    .has-blush-bordeaux-gradient-background {
+      background: var(--wp--preset--gradient--blush-bordeaux) !important;
+    }
+
+    .has-luminous-dusk-gradient-background {
+      background: var(--wp--preset--gradient--luminous-dusk) !important;
+    }
+
+    .has-pale-ocean-gradient-background {
+      background: var(--wp--preset--gradient--pale-ocean) !important;
+    }
+
+    .has-electric-grass-gradient-background {
+      background: var(--wp--preset--gradient--electric-grass) !important;
+    }
+
+    .has-midnight-gradient-background {
+      background: var(--wp--preset--gradient--midnight) !important;
+    }
+
+    .has-small-font-size {
+      font-size: var(--wp--preset--font-size--small) !important;
+    }
+
+    .has-medium-font-size {
+      font-size: var(--wp--preset--font-size--medium) !important;
+    }
+
+    .has-large-font-size {
+      font-size: var(--wp--preset--font-size--large) !important;
+    }
+
+    .has-x-large-font-size {
+      font-size: var(--wp--preset--font-size--x-large) !important;
+    }
+  </style>
+  <link rel="stylesheet" id="megamenu-css" href="/wp-content/uploads/maxmegamenu/style.css?ver=d8d599" media="all" />
+  <link rel="stylesheet" id="dashicons-css" href="/wp-includes/css/dashicons.min.css?ver=6.0.2" media="all" />
+  <link rel="stylesheet" id="font-awesome-official-css" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    media="all" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" id="olympus-google-fonts-css"
+    href="https://fonts.googleapis.com/css?family=Kanit%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100i%2C200i%2C300i%2C400i%2C500i%2C600i%2C700i%2C800i%2C900i&#038;display=swap&#038;subset=all&#038;ver=3.0.20"
+    media="all" />
+  <link rel="stylesheet" id="js_composer_front-css"
+    href="/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=6.6.0" media="all" />
+  <link rel="stylesheet" id="porto-google-fonts-css"
+    href="//fonts.googleapis.com/css?family=Arial%2C+Helvetica%2C+sans-serif%3A200%2C300%2C400%2C500%2C600%2C700%2C800%7CShadows+Into+Light%3A400%2C700%7COpen+Sans%3A200%2C300%2C400%2C500%2C600%2C700%2C800%7CPrompt%3A200%2C300%2C400%2C500%2C600%2C700%2C800%7CPlayfair+Display%3A400%2C700&#038;ver=6.0.2#038;subset=cyrillic,cyrillic-ext,greek,greek-ext,khmer,latin-ext,vietnamese"
+    media="all" />
+  <link rel="stylesheet" id="bootstrap-css" href="/wp-content/uploads/porto_styles/bootstrap.css?ver=6.0.6"
+    media="all" />
+  <link rel="stylesheet" id="porto-plugins-css" href="/wp-content/themes/porto/css/plugins.css?ver=6.0.2" media="all" />
+  <link rel="stylesheet" id="porto-theme-css" href="/wp-content/themes/porto/css/theme.css?ver=6.0.2" media="all" />
+  <link rel="stylesheet" id="porto-shortcodes-css" href="/wp-content/themes/porto/css/shortcodes.css?ver=6.0.6"
+    media="all" />
+  <link rel="stylesheet" id="porto-dynamic-style-css"
+    href="/wp-content/uploads/porto_styles/dynamic_style.css?ver=6.0.6" media="all" />
+  <link rel="stylesheet" id="porto-style-css" href="/wp-content/themes/porto/style.css?ver=6.0.2" media="all" />
+
+  <style id="porto-style-inline-css">
+    #header .logo,
+    .side-header-narrow-bar-logo {
+      max-width: 20px;
+    }
+
+    @media (min-width: 1170px) {
+      #header .logo {
+        max-width: 20px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      #header .logo {
+        max-width: 20px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      #header .logo {
+        max-width: 20px;
+      }
+    }
+
+    #header.sticky-header .logo {
+      max-width: 25px;
+    }
+
+    @media (min-width: 992px) {}
+
+    #header .header-main .header-left,
+    #header .header-main .header-center,
+    #header .header-main .header-right,
+    .fixed-header #header .header-main .header-left,
+    .fixed-header #header .header-main .header-right,
+    .fixed-header #header .header-main .header-center {
+      padding-top: 1px;
+      padding-bottom: 1px;
+    }
+
+    .page-top .page-title-wrap {
+      line-height: 0;
+    }
+
+    .page-top .page-title:not(.b-none):after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      left: 0;
+      border-bottom: 5px solid #af1217;
+      bottom: -32px;
+    }
+
+    #header.sticky-header .main-menu>li.menu-item>a,
+    #header.sticky-header .main-menu>li.menu-custom-content a {
+      color: #000000;
+    }
+
+    .mainheader-lang select {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #333333;
+    }
+  </style>
+  <link rel="stylesheet" id="font-awesome-official-v4shim-css"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css" media="all"
+    integrity="sha384-Vq76wejb3QJM4nDatBa5rUOve+9gkegsjCebvV/9fvXlGWo4HCMR4cJZjjcF6Viv" crossorigin="anonymous" />
+  <style id="font-awesome-official-v4shim-inline-css">
+    @font-face {
+      font-family: "FontAwesome";
+      font-display: block;
+      src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.eot"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff2") format("woff2"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff") format("woff"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.ttf") format("truetype"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.svg#fontawesome") format("svg");
+    }
+
+    @font-face {
+      font-family: "FontAwesome";
+      font-display: block;
+      src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.eot"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff2") format("woff2"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff") format("woff"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.ttf") format("truetype"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.svg#fontawesome") format("svg");
+    }
+
+    @font-face {
+      font-family: "FontAwesome";
+      font-display: block;
+      src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.eot"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.woff2") format("woff2"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.woff") format("woff"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.ttf") format("truetype"),
+        url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+      unicode-range: U+F004-F005, U+F007, U+F017, U+F022, U+F024, U+F02E,
+        U+F03E, U+F044, U+F057-F059, U+F06E, U+F070, U+F075, U+F07B-F07C,
+        U+F080, U+F086, U+F089, U+F094, U+F09D, U+F0A0, U+F0A4-F0A7, U+F0C5,
+        U+F0C7-F0C8, U+F0E0, U+F0EB, U+F0F3, U+F0F8, U+F0FE, U+F111,
+        U+F118-F11A, U+F11C, U+F133, U+F144, U+F146, U+F14A, U+F14D-F14E,
+        U+F150-F152, U+F15B-F15C, U+F164-F165, U+F185-F186, U+F191-F192,
+        U+F1AD, U+F1C1-F1C9, U+F1CD, U+F1D8, U+F1E3, U+F1EA, U+F1F6, U+F1F9,
+        U+F20A, U+F247-F249, U+F24D, U+F254-F25B, U+F25D, U+F267, U+F271-F274,
+        U+F279, U+F28B, U+F28D, U+F2B5-F2B6, U+F2B9, U+F2BB, U+F2BD,
+        U+F2C1-F2C2, U+F2D0, U+F2D2, U+F2DC, U+F2ED, U+F328, U+F358-F35B,
+        U+F3A5, U+F3D1, U+F410, U+F4AD;
+    }
+  </style>
+  <script src="/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+  <script src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+  <link rel="https://api.w.org/" href="/wp-json/" />
+  <link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/3387" />
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+  <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" />
+  <meta name="generator" content="WordPress 6.0.2" />
+  <link rel="canonical" href="/unit-value/" />
+  <link rel="shortlink" href="/?p=3387" />
+  <!-- <link rel="alternate" type="application/json+oembed"
+    href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps://mfcfund.com%2Funit-value%2F" />
+  <link rel="alternate" type="text/xml+oembed"
+    href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps://mfcfund.com%2Funit-value%2F&#038;format=xml" /> -->
+  <!-- start Simple Custom CSS and JS -->
+  <style>
+    #header .header-main .container {
+      min-height: 50px;
+    }
+
+    #header .top-links>li.menu-item>a {
+      font-size: 14px;
+      font-weight: 300;
+      padding: 0px 12px;
+      line-height: 25px;
+    }
+
+    #header .porto-view-switcher .narrow .popup>.inner>ul.sub-menu,
+    #header .top-links .narrow .popup>.inner>ul.sub-menu {
+      border-radius: 5px;
+    }
+
+    .wpb_content_element {
+      margin-bottom: 0px;
+    }
+
+    h1 .p1 {
+      font-weight: 700;
+    }
+
+    .main-sidebar-menu .sidebar-menu>li.menu-item>a {
+      font-family: "Kanit" !important;
+      font-size: 15px !important;
+      font-weight: 300;
+    }
+
+    #mega-menu-wrap-main_menu #mega-menu-main_menu li {
+      font-size: 18px !important;
+    }
+
+    body {
+      letter-spacing: 0px;
+      /*     font-family: 'Prompt-Regular' !important; */
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      letter-spacing: 0px;
+      /*      */
+      margin: 0 0 10px 0;
+      font-weight: 500;
+    }
+
+    b,
+    strong {
+      font-weight: 500;
+    }
+
+    span,
+    p {
+      letter-spacing: 0px;
+      font-weight: 300 !important;
+      /*       font-family: 'Prompt-Regular' !important; */
+    }
+
+    #header .top-links .narrow li.menu-item>a {
+      font-size: 15px;
+      padding: 13px 20px 5px 15px;
+      line-height: 23px;
+      font-weight: 300;
+      color: #434343;
+    }
+
+    .wpb_button,
+    .wpb_content_element,
+    ul.wpb_thumbnails-fluid>li {
+      margin-bottom: 0px;
+    }
+
+    .no-breadcrumbs .main-content {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+
+    /* element.style {
+} */
+    #footer .footer-main>.container {
+      padding-top: 1.6rem;
+      padding-bottom: 0.1rem;
+    }
+
+    #footer .footer-bottom {
+      padding: 0px 0;
+    }
+
+    #footer .footer-bottom .footer-left {
+      padding: 5px 8px 5px 0;
+      text-align: left;
+      font-size: 12px;
+      color: #7a7a7a;
+    }
+
+    .home-menu-box-grid-shadow {
+      border-radius: 5px !important;
+      box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+    }
+
+    .home-menu-box-grid2-shadow {
+      border-radius: 5px !important;
+      box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+    }
+
+    .home-menu-box-grid3-shadow {
+      border-radius: 5px !important;
+      box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+    }
+
+    .home-fund-box-grid-shadow {
+      border-radius: 5px !important;
+      box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+    }
+
+    .home-news-box-grid-shadow {
+      border-radius: 5px !important;
+      box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 10%);
+    }
+
+    .home-article .thumb {
+      width: 30%;
+      display: inline;
+      float: left;
+      margin-right: 15px;
+    }
+
+    .home-article {
+      padding: 5px;
+    }
+
+    .vc_text_separator {
+      margin-bottom: 5px;
+      border: none;
+    }
+
+    .home-news .thumb {
+      width: 25%;
+      display: inline;
+      float: left;
+      margin-right: 15px;
+    }
+
+    .home-news {
+      padding: 5px;
+    }
+
+    .alignright {
+      float: right;
+      margin: 4px 0 0px 5px;
+    }
+  </style>
+  <!-- end Simple Custom CSS and JS -->
+  <style>
+    .recentcomments a {
+      display: inline !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  </style>
+  <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+  <style id="wp-custom-css">
+    /* Border Sidebar BOD (Board Of Directors) */
+    .widget_sidebar_menu,
+    .tm-collapse,
+    .widget_layered_nav .yith-wcan-select-wrapper {
+      border: none !important;
+      background: transparent !important;
+    }
+
+    .sidebar-menu>li.menu-item>a,
+    .sidebar-menu .menu-custom-block a {
+      border: none !important;
+      background-color: transparent !important;
+    }
+  </style>
+  <!-- Fonts Plugin CSS - https://fontsplugin.com/ -->
+  <style>
+    :root {
+      --font-base: Kanit;
+      --font-headings: Kanit;
+      --font-input: Kanit;
+    }
+
+    body,
+    #content,
+    .entry-content,
+    .post-content,
+    .page-content,
+    .post-excerpt,
+    .entry-summary,
+    .entry-excerpt,
+    .widget-area,
+    .widget,
+    .sidebar,
+    #sidebar,
+    footer,
+    .footer,
+    #footer,
+    .site-footer {
+      font-family: "Kanit";
+    }
+
+    #site-title,
+    .site-title,
+    #site-title a,
+    .site-title a,
+    .entry-title,
+    .entry-title a,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .widget-title {
+      font-family: "Kanit";
+      font-weight: 500;
+    }
+
+    button,
+    .button,
+    input,
+    select,
+    textarea,
+    .wp-block-button,
+    .wp-block-button__link {
+      font-family: "Kanit";
+    }
+
+    #site-title,
+    .site-title,
+    #site-title a,
+    .site-title a,
+    #site-logo,
+    #site-logo a,
+    #logo,
+    #logo a,
+    .logo,
+    .logo a,
+    .wp-block-site-title,
+    .wp-block-site-title a {
+      font-family: "Kanit";
+    }
+
+    #site-description,
+    .site-description {
+      font-family: "Kanit";
+    }
+
+    .menu,
+    .page_item a,
+    .menu-item a,
+    .wp-block-navigation,
+    .wp-block-navigation-item__content {
+      font-family: "Kanit";
+    }
+
+    .entry-content,
+    .entry-content p,
+    .post-content,
+    .page-content,
+    .post-excerpt,
+    .entry-summary,
+    .entry-excerpt,
+    .excerpt,
+    .excerpt p,
+    .type-post p,
+    .type-page p {
+      font-family: "Kanit";
+    }
+
+    .wp-block-post-title,
+    .wp-block-post-title a,
+    .entry-title,
+    .entry-title a,
+    .post-title,
+    .post-title a,
+    .page-title,
+    .entry-content h1,
+    #content h1,
+    .type-post h1,
+    .type-page h1 {
+      font-family: "Kanit";
+    }
+
+    .entry-content h2,
+    .post-content h2,
+    .page-content h2,
+    #content h2,
+    .type-post h2,
+    .type-page h2 {
+      font-family: "Kanit";
+    }
+
+    .entry-content h3,
+    .post-content h3,
+    .page-content h3,
+    #content h3,
+    .type-post h3,
+    .type-page h3 {
+      font-family: "Kanit";
+    }
+
+    .entry-content h4,
+    .post-content h4,
+    .page-content h4,
+    #content h4,
+    .type-post h4,
+    .type-page h4 {
+      font-family: "Kanit";
+    }
+
+    .entry-content h5,
+    .post-content h5,
+    .page-content h5,
+    #content h5,
+    .type-post h5,
+    .type-page h5 {
+      font-family: "Kanit";
+    }
+
+    .entry-content h6,
+    .post-content h6,
+    .page-content h6,
+    #content h6,
+    .type-post h6,
+    .type-page h6 {
+      font-family: "Kanit";
+    }
+
+    blockquote,
+    .wp-block-quote,
+    blockquote p,
+    .wp-block-quote p {
+      font-family: "Kanit";
+    }
+
+    .widget-title,
+    .widget-area h1,
+    .widget-area h2,
+    .widget-area h3,
+    .widget-area h4,
+    .widget-area h5,
+    .widget-area h6,
+    #secondary h1,
+    #secondary h2,
+    #secondary h3,
+    #secondary h4,
+    #secondary h5,
+    #secondary h6 {
+      font-family: "Kanit";
+    }
+
+    .widget-area,
+    .widget,
+    .sidebar,
+    #sidebar,
+    #secondary {
+      font-family: "Kanit";
+    }
+
+    footer h1,
+    footer h2,
+    footer h3,
+    footer h4,
+    footer h5,
+    footer h6,
+    .footer h1,
+    .footer h2,
+    .footer h3,
+    .footer h4,
+    .footer h5,
+    .footer h6,
+    #footer h1,
+    #footer h2,
+    #footer h3,
+    #footer h4,
+    #footer h5,
+    #footer h6 {
+      font-family: "Kanit";
+    }
+
+    footer,
+    #footer,
+    .footer,
+    .site-footer {
+      font-family: "Kanit";
+    }
+  </style>
+  <!-- Fonts Plugin CSS -->
+  <noscript>
+    <style>
+      .wpb_animate_when_almost_visible {
+        opacity: 1;
+      }
+    </style>
+  </noscript>
+  <style type="text/css">
+    /** Mega Menu CSS: fs **/
+  </style>
+</head>
+
+<body
+  class="page-template-default page page-id-3387 wp-embed-responsive mega-menu-main-menu full blog-1 wpb-js-composer js-comp-ver-6.6.0 vc_responsive">
+  <!-- Loader -->
+  <div class="sls-loader-container active">
+    <div class="sls-loader mx-auto"></div>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- page wrapper -->
+
+    <!-- header wrapper -->
+    <div class="header-wrapper">
+      <!-- <header id="header" class="header-builder">
+        <div class="header-main header-has-center-sm">
+          <div class="header-row container">
+            <div class="header-col header-left hidden-for-sm">
+              <h1 class="logo">
+                <a
+                  href="/"
+                  title="MFC"
+                  rel="home"
+                >
+                  <img
+                    class="img-responsive sticky-logo"
+                    src="/wp-content/uploads/2022/08/mfc_logo-2.png"
+                    alt="MFC"
+                  /><img
+                    class="img-responsive sticky-retina-logo"
+                    src="/wp-content/uploads/2022/08/mfc_logo-1-1.png"
+                    alt="MFC"
+                    style="max-height: px"
+                  /><img
+                    class="img-responsive standard-logo"
+                    src="/wp-content/uploads/2022/08/mfc_logo.png"
+                    alt="MFC"
+                  /><img
+                    class="img-responsive retina-logo"
+                    src="/wp-content/uploads/2022/08/mfc_logo-retina.png"
+                    alt="MFC"
+                  />
+                </a>
+              </h1>
+            </div>
+            <div class="header-col visible-for-sm header-left">
+              <a class="mobile-toggle"><i class="fas fa-bars"></i></a>
+            </div>
+            <div class="header-col visible-for-sm header-center">
+              <h1 class="logo">
+                <a
+                  href="/"
+                  title="MFC"
+                  rel="home"
+                >
+                  <img
+                    class="img-responsive sticky-logo"
+                    src="/wp-content/uploads/2022/08/mfc_logo-2.png"
+                    alt="MFC"
+                  /><img
+                    class="img-responsive sticky-retina-logo"
+                    src="/wp-content/uploads/2022/08/mfc_logo-1-1.png"
+                    alt="MFC"
+                    style="max-height: px"
+                  /><img
+                    class="img-responsive standard-logo"
+                    src="/wp-content/uploads/2022/08/mfc_logo.png"
+                    alt="MFC"
+                  /><img
+                    class="img-responsive retina-logo"
+                    src="/wp-content/uploads/2022/08/mfc_logo-retina.png"
+                    alt="MFC"
+                  />
+                </a>
+              </h1>
+            </div>
+            <div class="header-col header-right hidden-for-sm">
+              <ul id="menu-top-menu" class="top-links mega-menu show-arrow">
+                <li
+                  id="nav-menu-item-1999"
+                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-sub narrow"
+                >
+                  <a href="#">บริการของเรา</a>
+                  <div class="popup">
+                    <div class="inner">
+                      <ul class="sub-menu">
+                        <li
+                          id="nav-menu-item-3576"
+                          class="menu-item menu-item-type-custom menu-item-object-custom"
+                          data-cols="1"
+                        >
+                          <a
+                            href="https://data-i.mfcfund.com/Login.aspx"
+                            target="_blank"
+                            >บริการสำหรับบริษัทคู่ค้า</a
+                          >
+                        </li>
+                        <li
+                          id="nav-menu-item-1990"
+                          class="menu-item menu-item-type-post_type menu-item-object-page"
+                          data-cols="1"
+                        >
+                          <a href="/mfcsmartservices/"
+                            >MFC Smart Services</a
+                          >
+                        </li>
+                        <li
+                          id="nav-menu-item-1991"
+                          class="menu-item menu-item-type-post_type menu-item-object-page"
+                          data-cols="1"
+                        >
+                          <a href="/howtoopenaccount/"
+                            >การเปิดบัญชีกองทุนรวม</a
+                          >
+                        </li>
+                        <li
+                          id="nav-menu-item-1992"
+                          class="menu-item menu-item-type-post_type menu-item-object-page"
+                          data-cols="1"
+                        >
+                          <a href="/paymentchannels/"
+                            >ช่องทางการชำระเงินค่าซื้อ-ขายหน่วยลงทุน</a
+                          >
+                        </li>
+                        <li
+                          id="nav-menu-item-1993"
+                          class="menu-item menu-item-type-post_type menu-item-object-page"
+                          data-cols="1"
+                        >
+                          <a href="/riskprofile/"
+                            >แบบประเมินความเสี่ยง</a
+                          >
+                        </li>
+                        <li
+                          id="nav-menu-item-3734"
+                          class="menu-item menu-item-type-custom menu-item-object-custom"
+                          data-cols="1"
+                        >
+                          <a
+                            href="/sellingagent-bank/"
+                            >ผู้สนับสนุนการขายและซื้อคืน</a
+                          >
+                        </li>
+                        <li
+                          id="nav-menu-item-1997"
+                          class="menu-item menu-item-type-post_type menu-item-object-page"
+                          data-cols="1"
+                        >
+                          <a href="/alwaysfund/"
+                            >DCA</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li
+                  id="nav-menu-item-3364"
+                  class="menu-item menu-item-type-post_type menu-item-object-page narrow"
+                >
+                  <a href="/contactus/">ติดต่อเรา</a>
+                </li>
+                <li
+                  id="nav-menu-item-3351"
+                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-sub narrow"
+                >
+                  <a href="#">เข้าสู่ระบบ</a>
+                  <div class="popup">
+                    <div class="inner">
+                      <ul class="sub-menu">
+                        <li
+                          id="nav-menu-item-3936"
+                          class="menu-item menu-item-type-custom menu-item-object-custom"
+                          data-cols="1"
+                        >
+                          <a id="st-link" target="_blank"
+                            >Smart Trade</a
+                          >
+                        </li>
+                        <li
+                          id="nav-menu-item-3935"
+                          class="menu-item menu-item-type-custom menu-item-object-custom"
+                          data-cols="1"
+                        >
+                          <a id="pvd-link" target="_blank"
+                            >PVD Online</a
+                          >
+                        </li>
+                        <li
+                          id="nav-menu-item-3354"
+                          class="menu-item menu-item-type-post_type menu-item-object-page"
+                          data-cols="1"
+                        >
+                          <a href="/howtoopenaccount/"
+                            >Account Openning</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="new-share-links">
+                <a
+                  target="_blank"
+                  href="https://www.facebook.com/mfcfunds"
+                >
+                  <img src="../assets/image/home/facebook.png" alt="">
+                </a>
+                <a
+                  target="_blank"
+                  href="https://liff.line.me/1645278921-kWRPP32q/?accountId=mfcfunds"
+                >
+                  <img src="../assets/image/home/line.png" alt="">
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/c/MFCAssetManagementPLC"
+                >
+                  <img src="../assets/image/home/youtube.png" alt="">
+                </a>
+              </div>
+              <div class="switch-lang">
+                <div class="box-lang" id="lang-th">TH</div>
+                <div style="padding: 0 2px 0 2px;">|</div>
+                <div class="box-lang" id="lang-en">EN</div>
+              </div>
+            </div>
+            <div class="header-col visible-for-sm header-right">
+            </div>
+          </div>
+        </div>
+        <div
+          class="header-bottom header-has-center header-has-not-center-sm main-menu-wrap"
+        >
+          <div class="header-row container">
+            <div class="header-col header-center hidden-for-sm">
+              <div id="mega-menu-wrap-main_menu" class="mega-menu-wrap">
+                <div class="mega-menu-toggle">
+                  <div class="mega-toggle-blocks-left">
+                    <div
+                      class="mega-toggle-block mega-menu-toggle-block mega-toggle-block-1"
+                      id="mega-toggle-block-1"
+                      tabindex="0"
+                    >
+                      <span
+                        class="mega-toggle-label"
+                        role="button"
+                        aria-expanded="false"
+                        ><span class="mega-toggle-label-closed">MENU</span
+                        ><span class="mega-toggle-label-open"
+                          >MENU</span
+                        ></span
+                      >
+                    </div>
+                  </div>
+                  <div class="mega-toggle-blocks-center"></div>
+                  <div class="mega-toggle-blocks-right"></div>
+                </div>
+                <ul
+                  id="mega-menu-main_menu"
+                  class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js"
+                  data-event="hover_intent"
+                  data-effect="fade_up"
+                  data-effect-speed="200"
+                  data-effect-mobile="disabled"
+                  data-effect-speed-mobile="0"
+                  data-panel-width="#content"
+                  data-panel-inner-width="#content"
+                  data-mobile-force-width="false"
+                  data-second-click="close"
+                  data-document-click="collapse"
+                  data-vertical-behaviour="accordion"
+                  data-breakpoint="768"
+                  data-unbind="true"
+                  data-mobile-state="collapse_all"
+                  data-hover-intent-timeout="300"
+                  data-hover-intent-interval="100"
+                >
+                  <li
+                    class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-home mega-current-menu-item mega-page_item mega-page-item-7 mega-current_page_item mega-align-bottom-left mega-menu-flyout mega-menu-item-1549"
+                    id="mega-menu-item-1549"
+                  >
+                    <a
+                      class="mega-menu-link"
+                      href="/"
+                      tabindex="0"
+                      id="home"
+                      >หน้าหลัก</a
+                    >
+                  </li>
+                  <li
+                    class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-grid mega-menu-item-18"
+                    id="mega-menu-item-18"
+                  >
+                    <a
+                      class="mega-menu-link"
+                      href="#"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      tabindex="0"
+                      id="mutualfund"
+                      >กองทุนรวม<span class="mega-indicator"></span
+                    ></a>
+                    <ul class="mega-sub-menu">
+                      <li class="mega-menu-row" id="mega-menu-18-0">
+                        <ul class="mega-sub-menu">
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-18-0-0"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-14"
+                                id="mega-menu-item-custom_html-14"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b id="mutualfundinfo">ข้อมูลกองทุนรวม</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/mutual-fund-information/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ข้อมูลกองทุนรวม</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/whatismutualfund/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >กองทุนรวมคืออะไร</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/unit-value/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >มูลค่าหน่วยลงทุน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/performance/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ผลการดำเนินงาน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/recommened-fund/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >กองทุนแนะนำ</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/service-fund-tax/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >คู่มือการลงทุน RMF/Thai ESG/SSF/LTF</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/compare-funds/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >เปรียบเทียบกองทุน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="https://documents.mfcfund.com/Website/Others/TransactionDate_20221110.pdf"
+                                        target="_blank"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ตารางวันเวลาซื้อขายกองทุน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="https://documents.mfcfund.com/Website/Others/fund_change_table_20221110.pdf"
+                                        target="_blank"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ตารางการสับเปลี่ยนหน่วยลงทุน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/fund-calendar/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ปฏิทินกองทุน</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-18-0-1"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-15"
+                                id="mega-menu-item-custom_html-15"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b>Wealth DIY</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/riskprofile/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >แบบประเมินความเสี่ยง</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/investment-personality-test/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          ></span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/style-and-investmenttype/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          ></span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/investment-planning/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >วางแผนการลงทุน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/port-recommend/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >พอร์ตแนะนำ</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-18-0-2"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-16"
+                                id="mega-menu-item-custom_html-16"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b>บริการกองทุน</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/download-forms/?id=1"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ดาวน์โหลดแบบฟอร์มต่างๆ</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/howtoopenaccount/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >การเปิดบัญชีและทำรายการ</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 16px;
+                                          color: #333333;
+                                        "
+                                        href="/divident-payment/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >การจ่ายเงินปันผล</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/paymentchannels/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ช่องทางการรับและชำระเงิน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="./assets/pdf/2023_SmartReward_24302022_112409.pdf"
+                                        target="_blank"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >MFC Smart Reward</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/fund-gift-card/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >Fund Gift Card</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-18-0-3"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-17"
+                                id="mega-menu-item-custom_html-17"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b>บริการออนไลน์</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/openaccount-online/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >การเปิดบัญชี online</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/mfcsmartservices/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >MFC Smart Services</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li
+                    class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-3428"
+                    id="mega-menu-item-3428"
+                  >
+                    <a
+                      class="mega-menu-link"
+                      href="/privatefund/"
+                      tabindex="0"
+                      >กองทุนส่วนบุคคล</a
+                    >
+                  </li>
+                  <li
+                    class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-megamenu mega-menu-item-has-children mega-align-bottom-left mega-menu-megamenu mega-menu-item-1288"
+                    id="mega-menu-item-1288"
+                  >
+                    <a
+                      class="mega-menu-link"
+                      href="/providentfund/"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      tabindex="0"
+                      >กองทุนสำรองเลี้ยงชีพ</a
+                    >
+                  </li>
+                  <li
+                    class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-megamenu mega-menu-item-has-children mega-align-bottom-left mega-menu-megamenu mega-menu-item-21"
+                    id="mega-menu-item-21"
+                  >
+                    <a
+                      class="mega-menu-link"
+                      href="/estate-fund-inform-main/"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      tabindex="0"
+                      >กองทุนรวมอสังหาฯ/โครงสร้างพื้นฐาน/รีทส์</a>
+                  </li>
+                  <li
+                    class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-3385"
+                    id="mega-menu-item-3385"
+                  >
+                    <a
+                      class="mega-menu-link"
+                      href="/trustee/"
+                      tabindex="0"
+                      >ธุรกิจทรัสตี</a
+                    >
+                  </li>
+                  <li
+                    class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-grid mega-menu-item-3386"
+                    id="mega-menu-item-3386"
+                  >
+                    <a
+                      class="mega-menu-link"
+                      href="#"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      tabindex="0"
+                      >นักลงทุนสัมพันธ์<span class="mega-indicator"></span
+                    ></a>
+                    <ul class="mega-sub-menu">
+                      <li class="mega-menu-row" id="mega-menu-3386-0">
+                        <ul class="mega-sub-menu">
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-3386-0-0"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-20"
+                                id="mega-menu-item-custom_html-20"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b>ข้อมูลบริษัท</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/history/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ความเป็นมา</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/stock-price/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ข้อมูลหลักทรัพย์</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/vision-mission/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >วิสัยทัศน์บริษัท</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/shareholder/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >โครงสร้างผู้ถือหุ้น</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/boarddirectors/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >คณะกรรมการ/คณะจัดการ</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        id="OrgChart"
+                                        href="https://documents.mfcfund.com/Website/Others/OrgChart 20200528.pdf"
+                                        target="_blank"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >โครงสร้างการจัดการ</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/award/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >รางวัลแห่งความสำเร็จ</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-3386-0-1"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-21"
+                                id="mega-menu-item-custom_html-21"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b>การกำกับดูแลกิจการ</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/corporate-governance/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ข้อบังคับบริษัท</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/bussinessethics/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >จรรยาบรรณการประกอบธุรกิจ</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/report-and-policy/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >รายงานและนโยบาย</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/anticorruptionpolicy/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >นโยบายต่อต้านคอร์รัปชั่น</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/investmentgovernancecode/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >นโยบายธรรมาภิบาลการลงทุน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/privacy-policy/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >นโยบายความเป็นส่วนตัว</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/sustainable-development/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >การพัฒนาเพื่อความยั่งยืน</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-3386-0-2"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-22"
+                                id="mega-menu-item-custom_html-22"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b>ข้อมูลและรายงานทางการเงิน</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/financial-report/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >รายงานทางการเงิน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/report-management-analysis/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >รายงานและการวิเคราะห์ฝ่ายบริหาร</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/stockmarket-news/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ข่าวแจ้งตลาดหลักทรัพย์</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-3386-0-3"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-23"
+                                id="mega-menu-item-custom_html-23"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b>เอกสารเผยแพร่</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/annual-report/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >แบบ 56-1 One Report / รายงานประจำปี</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/annual-registration-statement/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          ></span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/sustainable-development/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >รายงานการพัฒนาเพื่อความยั่งยืน</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/public-presentation/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ข้อมูลนำเสนอ (Public
+                                          Presentation)</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="mega-menu-row" id="mega-menu-3386-1">
+                        <ul class="mega-sub-menu">
+                          <li
+                            class="mega-menu-column mega-menu-columns-3-of-12"
+                            id="mega-menu-3386-1-0"
+                          >
+                            <ul class="mega-sub-menu">
+                              <li
+                                class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-24"
+                                id="mega-menu-item-custom_html-24"
+                              >
+                                <div class="textwidget custom-html-widget">
+                                  <h4 class="p1" style="margin-bottom: 5px">
+                                    <span class="s1" style="color: #af1217"
+                                      ><b>การประชุมผู้ถือหุ้น</b></span
+                                    >
+                                  </h4>
+                                  <ul
+                                    style="
+                                      list-style-type: none;
+                                      padding-left: 0px;
+                                    "
+                                  >
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/shareholdersmeeting/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >หนังสือเชิญประชุมผู้ถือหุ้น</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/shareholder-meeting/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >รายงานการประชุมผู้ถือหุ้น</span
+                                        ></a
+                                      >
+                                    </li>
+                                    <li class="p2">
+                                      <a
+                                        style="
+                                          font-size: 14px;
+                                          color: #333333;
+                                        "
+                                        href="/submit-questions-agenda/"
+                                        ><span
+                                          class="s1"
+                                          style="color: #333333"
+                                          >ส่งคำถามเกี่ยวกับวาระการประชุม</span
+                                        ></a
+                                      >
+                                    </li>
+                                  </ul>
+                                </div>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header> -->
+    </div>
+    <!-- end header wrapper -->
+
+    <div id="main" class="column1 boxed no-breadcrumbs">
+      <!-- main -->
+
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">
+              <a href="/">หน้าแรก</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              ข้อมูลกองทุนรวม
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              มูลค่าหน่วยลงทุน
+            </li>
+          </ol>
+        </nav>
+        <div class="row main-content-wrap">
+          <div class="title-row">
+            <h1 class="title" style="
+                  font-size: 32px;
+                  color: #911a2a;
+                  margin-bottom: 0em;
+                  line-height: 1.1em;
+                ">
+              มูลค่าหน่วยลงทุน
+            </h1>
+            <div style="margin: 0;margin-left: auto;"><a style="margin: 0;
+                background: #787878;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 25px;
+                text-decoration: none;" href="/historical-download/">ดาวน์โหลด NAV ย้อนหลัง</a></div>
+          </div>
+
+          <!-- main content -->
+          <div class="main-content col-lg-12">
+            <div class="title-de-div" style="margin: 20px 0 10px 0">
+              <!-- <span class="title-dt" style="font-size: 16px">เลือกกองทุนตามประเภท</span> -->
+            </div>
+            <!-- เมนูเลือกกองทุนตามประเภท -->
+            <!-- <div id="home-unit-wrapper"></div> -->
+            <!-- Dropdows Responsive -->
+
+            <!-- <div class="dropdown-download">
+                <select
+                  name=""
+                  id="root-drop-down"
+                  onchange="handleChange(this.value);"
+                >
+                  <option disabled selected>กรุณาเลือก</option>
+                </select>
+              </div> -->
+            <!-- ค้นหา -->
+            <div id="fund-search">
+            </div>
+
+            <!-- ตารางแสดง -->
+            <div id="box-fund">
+              <!-- กองทุนที่เลือก -->
+              <!-- <div id="fund-nav-box"></div> -->
+              <!-- กองทุน -->
+              <!-- <div id="fund-display-wrapper"></div> -->
+            </div>
+
+            <div id="row-fixed-bottom"
+              class="vc_row wpb_row row vc_custom_1620808404585 vc_row-has-fill vc_row-o-content-middle vc_row-flex">
+              <div class="vc_column_container col-md-12">
+                <div class="wpb_wrapper vc_column-inner">
+                  <div class="wpb_text_column wpb_content_element vc_custom_1620984302036">
+                    <div class="wpb_wrapper">
+                      <div class="fixed-display" style="justify-content: center; align-items: center">
+                        <div class="fund-box-cb">
+                          <div class="fund-close">
+                            <button id="btn-close1" type="button" class="close"></button>
+                          </div>
+                          <div id="fund-cb-1">
+                            <p style="font-size: 16px; font-weight: 400 !important; color: #666666; margin: 0;"
+                              id="fund-code">กองทุนที่ 1</p>
+                            <p style="font-size: 14px; font-weight: 300 !important; color: #666666;" id="fund-name-th">
+                            </p>
+                          </div>
+                        </div>
+                        <div class="fund-box-cb">
+                          <div class="fund-close">
+                            <button id="btn-close2" type="button" class="close"></button>
+                          </div>
+                          <div id="fund-cb-2">
+                            <p style="font-size: 16px; font-weight: 400 !important; color: #666666; margin: 0;"
+                              id="fund-code-2">กองทุนที่ 2</p>
+                            <p style="font-size: 14px; font-weight: 300 !important; color: #666666;"
+                              id="fund-name-th-2"></p>
+                          </div>
+                        </div>
+
+                        <p style="text-align: center">
+                          <a id="link-compare-fund"><button style="
+                                  border-radius: 20px;
+                                  padding: 5px 30px;
+                                  border: 0px;
+                                  color: white;
+                                  background-image: linear-gradient(
+                                    to right,
+                                    #911a2a,
+                                    #c42a3d
+                                  );
+                                  cursor: pointer;
+                                ">
+                              เปรียบเทียบกองทุน
+                            </button></a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="content" role="main">
+              <article class="post-3387 page type-page status-publish hentry">
+                <span class="entry-title" style="display: none">มูลค่าหน่วยลงทุน</span><span class="vcard"
+                  style="display: none"><span class="fn"><a href="/author/webnilec_mfc/" title="เขียนโดย webnilec_mfc"
+                      rel="author">webnilec_mfc</a></span></span><span class="updated"
+                  style="display: none">2022-07-22T13:42:28+07:00</span>
+                <div class="page-content"></div>
+              </article>
+            </div>
+          </div>
+          <!-- end main content -->
+        </div>
+      </div>
+    </div>
+    <!-- end main -->
+
+    <div class="footer"></div>
+    <!-- <div class="footer-wrapper">
+          <div class="footer-top">
+            <div class="container">
+              <aside
+                id="custom_html-7"
+                class="widget_text widget widget_custom_html"
+              >
+                <div class="textwidget custom-html-widget">
+                  <p></p>
+                  <div class="vc_row wpb_row row vc_column-gap-25">
+                    <div class="vc_column_container col-md-3">
+                      <div class="wpb_wrapper vc_column-inner">
+                        <div class="wpb_text_column wpb_content_element">
+                          <div class="wpb_wrapper">
+                            <h4 class="p1" style="margin-bottom: 5px">
+                              <span class="s1" style="color: #af1217"
+                                ><b>กองทุน</b></span
+                              ><br />
+                            </h4>
+                            <ul style="list-style-type: none; padding-left: 0px">
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/whatismutualfund/"
+                                  ><span class="s1" style="color: #333333"
+                                    >กองทุนรวม</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/privatefund/"
+                                  ><span class="s1" style="color: #333333"
+                                    >กองทุนส่วนบุคคล</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/providentfund/"
+                                  ><span class="s1" style="color: #333333"
+                                    >กองทุนสำรองเลี้ยงชีพ</span
+                                  ></a
+                                >
+                              </li>
+                              
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/estate-fund-inform-main/"
+                                  ><span class="s1" style="color: #333333"
+                                    >กองทุนรวมอสังหาฯ/โครงสร้างพื้นฐาน/รีทส์</span
+                                  ></a
+                                >
+                              </li>
+  
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/report-sumamount-invest/"
+                                  ><span class="s1" style="color: #333333"
+                                    >การกำกับดูแลธุรกิจกองทุน</span
+                                  ></a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="wpb_wrapper" style="margin-top: 20px;">
+                            <h4 class="p1" style="margin-bottom: 5px">
+                              <span class="s1" style="color: #af1217"
+                                ><b>ช่องทางการให้บริการ</b></span
+                              ><br />
+                            </h4>
+                            <ul style="list-style-type: none; padding-left: 0px">
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="#"
+                                  ><span class="s1" style="color: #333333"
+                                    >MFC Content Center</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/mfcsmartservices/"
+                                  ><span class="s1" style="color: #333333"
+                                    >MFC Smart Services</span
+                                  ></a
+                                >
+                              </li>
+                             <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="#"
+                                  ><span class="s1" style="color: #333333"
+                                    >MFC Branch</span
+                                  ></a
+                                >
+                              </li> 
+                             <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="#"
+                                  ><span class="s1" style="color: #333333"
+                                    >ชำระหน่วยลงผ่านไปรษณีย์ไทย</span
+                                  ></a
+                                >
+                              </li> 
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/sellingagent-bank/"
+                                  ><span class="s1" style="color: #333333"
+                                    >ผู้สนับสนุนการขายและซื้อคืน</span
+                                  ></a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="vc_column_container col-md-3">
+                      <div class="wpb_wrapper vc_column-inner">
+                        <div class="wpb_text_column wpb_content_element">
+                          <div class="wpb_wrapper">
+                            <h4 class="p1" style="margin-bottom: 5px">
+                              <span class="s1" style="color: #af1217"
+                                ><b>ข่าวสารและกิจกรรม</b></span
+                              ><br />
+                            </h4>
+                            <ul style="list-style-type: none; padding-left: 0px">
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/news/"
+                                  ><span class="s1" style="color: #333333"
+                                    >ข่าวเอ็มเอฟซี</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/fund-announcement/"
+                                  ><span class="s1" style="color: #333333"
+                                    >ประกาศกองทุน</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/activity-and-promotions/"
+                                  ><span class="s1" style="color: #333333"
+                                    >โปรโมชั่น</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/fund-video/"
+                                  ><span class="s1" style="color: #333333"
+                                    >วิดีโอกองทุน</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/investment-strategy/"
+                                  ><span class="s1" style="color: #333333"
+                                    >Investment Strategy</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/know-deeply/"
+                                  ><span class="s1" style="color: #333333"
+                                    >รู้ลึกเรื่องกองทุน</span
+                                  ></a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="vc_column_container col-md-3">
+                      <div class="wpb_wrapper vc_column-inner">
+                        <div class="wpb_text_column wpb_content_element">
+                          <div class="wpb_wrapper">
+                            <h4 class="p1" style="margin-bottom: 5px">
+                              <span class="s1" style="color: #af1217"
+                                ><b>เกี่ยวกับ MFC</b></span
+                              ><br />
+                            </h4>
+                            <ul style="list-style-type: none; padding-left: 0px">
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/history/"
+                                  ><span class="s1" style="color: #333333"
+                                    >ความเป็นมา</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/contactus/"
+                                  ><span class="s1" style="color: #333333"
+                                    >ติดต่อเรา</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/faq/"
+                                  ><span class="s1" style="color: #333333"
+                                    >คำถามทีพบบ่อย</span
+                                  ></a
+                                >
+                              </li>
+                            <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/regis-cancle-receivenews/"
+                                  ><span class="s1" style="color: #333333"
+                                    >สมัครรับข่าวสาร</span
+                                  ></a
+                                >
+                              </li>
+                              <li class="p2">
+                                <a
+                                  style="font-size: 16px; color: #333333"
+                                  href="/sitemap-website/"
+                                  ><span class="s1" style="color: #333333"
+                                    >แผงผังเว็บไซต์</span
+                                  ></a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="vc_column_container col-md-3">
+                      <div class="wpb_wrapper vc_column-inner">
+                        <div class="wpb_text_column wpb_content_element">
+                          <div class="wpb_wrapper">
+                            <h5
+                              class="p1"
+                              style="
+                                color: #3f4347;
+                                font-size: 20px;
+                                font-weight: 400 !important;
+                                /* margin-top: 35px; */
+                                margin-bottom: 5px;
+                              "
+                            >
+                              MFC Contact Center<br />
+                            </h5>
+                            <h3
+                              class="p2"
+                              style="color: #3f4347;
+                               line-height: 1.2;
+                               font-size: 20px;
+                              font-weight: 400 !important;"
+                            >
+                              0-2649-2000 กด 0
+                            </h3>
+  
+                            <div
+                              class="wpb_single_image wpb_content_element vc_align_left vc_custom_1620890873126"
+                            >
+                              <div class="wpb_wrapper">
+                                <div
+                                  class="vc_single_image-wrapper vc_box_border_grey"
+                                >
+                                  <img
+                                    width="91"
+                                    height="91"
+                                    src="/wp-content/uploads/2021/05/logo-app-mfc-wealth.png"
+                                    class="vc_single_image-img attachment-thumbnail"
+                                    alt=""
+                                    loading="lazy"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+  
+                            <h5
+                              style="
+                                font-size: 18px;
+                                font-weight: 300;
+                                line-height: 1;
+                                padding-top: 20px;
+                                margin-bottom: 10px;
+                              "
+                            >
+                              ดาวน์โหลด MFC Wealth app<br />
+                            </h5>
+                            <table
+                              style="
+                                border-collapse: inherit;
+                                display: table-cell;
+                              "
+                            >
+                              <tbody>
+                                <tr>
+                                  <th style="padding: 2px; margin-left: -2px">
+                                    <div
+                                      class="wpb_single_image wpb_content_element vc_align_left"
+                                    >
+                                      <div class="wpb_wrapper">
+                                        <a href="https://apps.apple.com/th/app/mfc-wealth/id1557631370" target="_blank" rel="noopener">
+                                          <div
+                                            class="vc_single_image-wrapper vc_box_border_grey"
+                                          >
+                                            <img
+                                              width="151"
+                                              height="45"
+                                              src="/wp-content/uploads/2021/05/app-store-btn.png"
+                                              class="vc_single_image-img attachment-full"
+                                              alt=""
+                                              loading="lazy"
+                                            />
+                                          </div>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th style="padding: 2px">
+                                    <div
+                                      class="wpb_single_image wpb_content_element vc_align_left"
+                                    >
+                                      <div class="wpb_wrapper">
+                                        <a href="https://play.google.com/store/apps/details?id=com.mfcfund.mfcwealth" target="_blank" rel="noopener">
+                                          <div
+                                            class="vc_single_image-wrapper vc_box_border_grey"
+                                          >
+                                            <img
+                                              width="150"
+                                              height="45"
+                                              src="/wp-content/uploads/2021/05/play-store-btn.png"
+                                              class="vc_single_image-img attachment-full"
+                                              alt=""
+                                              loading="lazy"
+                                            />
+                                          </div>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </th>
+                                  <th></th>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="vc_column_container col-md-12">
+                      <div class="wpb_wrapper vc_column-inner">
+                        <h3 style="text-align: center; font-size: 16px; line-height: 17px;">
+                          <span style="color: #434343"
+                            >“ผู้ลงทุนควรทำความเข้าใจลักษณะสินค้า เงื่อนไขผลตอบแทน
+                            และความเสี่ยงก่อนตัดสินใจลงทุน”</span
+                          >
+                        </h3>
+                        <p></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+  
+          <div id="footer" class="footer-1">
+            <div class="footer-main">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <aside
+                      id="custom_html-6"
+                      class="widget_text widget widget_custom_html"
+                    >
+                      <div class="textwidget custom-html-widget">
+                        <h3 style="margin-bottom: 10px">
+                          <span
+                            style="
+                              color: #ffffff;
+                              font-size: 18px;
+                              font-weight: 400 !important;
+                            "
+                            >บริษัทหลักทรัพย์จัดการกองทุนเอ็มเอฟซี จำกัด
+                            (มหาชน)</span
+                          >
+                        </h3>
+                        <h4 style="margin-bottom: 0px; line-height: 10px">
+                          <span style="color: #ffffff; font-size: 14px"
+                            >199 อาคารคอลัมน์ทาวเวอร์ ชั้น จี และชั้น 21-23
+                            ถนนรัชดาภิเษก<span class="Apple-converted-space"
+                              > </span
+                            ></span
+                          >
+                        </h4>
+                        <h4>
+                          <span style="color: #ffffff; font-size: 14px"
+                            >แขวงคลองเตย เขตคลองเตย กรุงเทพฯ 10110</span
+                          >
+                        </h4>
+                      </div>
+                    </aside>
+                  </div>
+                  <div class="col-lg-6">
+                    <aside
+                      id="custom_html-9"
+                      class="widget_text widget widget_custom_html"
+                    >
+                    
+                      <div class="textwidget custom-html-widget">
+                        <a href="https://www.youtube.com/c/MFCAssetManagementPLC" target="_blank" rel="noopener noreferrer">
+                          <img
+                          class="alignnone wp-image-2163 alignright"
+                          src="/wp-content/uploads/2021/05/icon-youtube.png"
+                          alt=""
+                          width="30"
+                          height="29"
+                          />
+                        </a>
+                        <a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=mfcfunds" target="_blank" rel="noopener noreferrer">
+                          <img
+                          class="alignnone wp-image-2161 alignright"
+                          src="/wp-content/uploads/2021/05/icon-line.png"
+                          alt=""
+                          width="31"
+                          height="29"
+                          />
+                        </a>
+                        <a href="https://www.facebook.com/mfcfunds" target="_blank" rel="noopener noreferrer">
+                          <img
+                          class="alignnone wp-image-2159 alignright"
+                          src="/wp-content/uploads/2021/05/icon-facebook.png"
+                          alt=""
+                          width="29"
+                          height="28"
+                          />
+                        </a>
+                      </div>
+                    </aside>
+                    <aside id="block-3" class="widget widget_block">
+                      <div
+                        style="
+                          text-align: right;
+                          font-size: 13px;
+                          color: #ffffff !important;
+                          font-weight: 300;
+                        "
+                      >
+                        <a href="https://documents.mfcfund.com/Website/PDPA/MFC Privacy Notice.pdf" style="color: white;">นโยบายการคุ้มครองข้อมูลส่วนบุคคล</a> |
+                        <a href="/disclaimer/" style="color: white;">คำสงวนสิทธิ </a> | 
+                        <a href="#" target="_blank" style="color: white;">แผนผังเว็บไซต์</a>
+                      </div>
+                    </aside>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="footer-bottom">
+  
+            
+              <div class="ft-version">Version.221223.01</div>
+  
+              <div class="container">
+                <div class="footer-center">
+                  <span class="footer-copyright"
+                    >© 2013 MFC Asset Management Public Company Limited | All
+                    Rights Reserved.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+  </div>
+  <!-- end wrapper -->
+
+  <div class="panel-overlay"></div>
+  <div id="side-nav-panel" class="panel-left">
+    <a href="#" class="side-nav-panel-close"><i class="fas fa-times"></i></a>
+    <div class="menu-wrap">
+      <div id="mega-menu-wrap-main_menu" class="mega-menu-wrap">
+        <div class="mega-menu-toggle">
+          <div class="mega-toggle-blocks-left">
+            <div class="mega-toggle-block mega-menu-toggle-block mega-toggle-block-1" id="mega-toggle-block-1"
+              tabindex="0">
+              <span class="mega-toggle-label" role="button" aria-expanded="false"><span
+                  class="mega-toggle-label-closed">MENU</span><span class="mega-toggle-label-open">MENU</span></span>
+            </div>
+          </div>
+          <div class="mega-toggle-blocks-center"></div>
+          <div class="mega-toggle-blocks-right"></div>
+        </div>
+        <ul id="mega-menu-main_menu" class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js"
+          data-event="hover_intent" data-effect="fade_up" data-effect-speed="200" data-effect-mobile="disabled"
+          data-effect-speed-mobile="0" data-panel-width="#content" data-panel-inner-width="#content"
+          data-mobile-force-width="false" data-second-click="close" data-document-click="collapse"
+          data-vertical-behaviour="accordion" data-breakpoint="768" data-unbind="true" data-mobile-state="collapse_all"
+          data-hover-intent-timeout="300" data-hover-intent-interval="100">
+          <li
+            class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-item-home mega-align-bottom-left mega-menu-flyout mega-menu-item-1549"
+            id="mega-menu-item-1549">
+            <a class="mega-menu-link" href="/" tabindex="0">หน้าหลัก</a>
+          </li>
+          <li
+            class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-grid mega-menu-item-18"
+            id="mega-menu-item-18">
+            <a class="mega-menu-link" href="#" aria-haspopup="true" aria-expanded="false" tabindex="0">กองทุนรวม<span
+                class="mega-indicator"></span></a>
+            <ul class="mega-sub-menu">
+              <li class="mega-menu-row" id="mega-menu-18-0">
+                <ul class="mega-sub-menu">
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-18-0-0">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-14"
+                        id="mega-menu-item-custom_html-14">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>ข้อมูลกองทุนรวม</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/mutual-fund-information/"><span
+                                  class="s1" style="color: #333333">ข้อมูลกองทุนรวม</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/whatismutualfund/"><span class="s1"
+                                  style="color: #333333">กองทุนรวมคืออะไร</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/unit-value/"><span class="s1"
+                                  style="color: #333333">มูลค่าหน่วยลงทุน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/performance/"><span class="s1"
+                                  style="color: #333333">ผลการดำเนินงาน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/recommened-fund/"><span class="s1"
+                                  style="color: #333333">กองทุนแนะนำ</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/service-fund-tax/"><span class="s1"
+                                  style="color: #333333">คู่มือการลงทุน RMF/Thai ESG/SSF/LTF</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/compare-funds/"><span class="s1"
+                                  style="color: #333333">เปรียบเทียบกองทุน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333"
+                                href="/fund-schedule/"
+                                target="_blank"><span class="s1"
+                                  style="color: #333333">ตารางวันเวลาซื้อขายกองทุน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333"
+                                href="/investment-unit/"
+                                target="_blank"><span class="s1"
+                                  style="color: #333333">ตารางการสับเปลี่ยนหน่วยลงทุน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/fund-calendar/"><span class="s1"
+                                  style="color: #333333">ปฏิทินกองทุน</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-18-0-1">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-15"
+                        id="mega-menu-item-custom_html-15">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>Wealth DIY</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/riskprofile/"><span class="s1"
+                                  style="color: #333333">แบบประเมินความเสี่ยง</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/investment-personality-test/"><span
+                                  class="s1" style="color: #333333"></span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/style-and-investmenttype/"><span
+                                  class="s1" style="color: #333333"></span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/investment-planning/"><span class="s1"
+                                  style="color: #333333">วางแผนการลงทุน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/port-recommend/"><span class="s1"
+                                  style="color: #333333">พอร์ตแนะนำ</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-18-0-2">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-16"
+                        id="mega-menu-item-custom_html-16">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>บริการกองทุน</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/download-forms/?id=1"><span class="s1"
+                                  style="color: #333333">ดาวน์โหลดแบบฟอร์มต่างๆ</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/howtoopenaccount/"><span class="s1"
+                                  style="color: #333333">การเปิดบัญชีและทำรายการ</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/divident-payment/"><span class="s1"
+                                  style="color: #333333">การจ่ายเงินปันผล</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/paymentchannels/"><span class="s1"
+                                  style="color: #333333">ช่องทางการรับและชำระเงิน</span></a>
+                            </li>
+
+
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333"
+                                href="https://documents.mfcfund.com/Website/Marcom/SmartReward.pdf" target="_blank"><span
+                                  class="s1" style="color: #333333">MFC Smart Reward</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/fund-gift-card/"><span class="s1"
+                                  style="color: #333333">Fund Gift Card</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-18-0-3">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-17"
+                        id="mega-menu-item-custom_html-17">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>บริการออนไลน์</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/openaccount-online/"><span class="s1"
+                                  style="color: #333333">การเปิดบัญชี online</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/mfcsmartservices/"><span class="s1"
+                                  style="color: #333333">MFC Smart Services</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-3428"
+            id="mega-menu-item-3428">
+            <a class="mega-menu-link" href="/privatefund/" tabindex="0">กองทุนส่วนบุคคล</a>
+          </li>
+          <li
+            class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-menu-megamenu mega-menu-item-has-children mega-align-bottom-left mega-menu-megamenu mega-menu-item-1288"
+            id="mega-menu-item-1288">
+            <a class="mega-menu-link" href="/providentfund/" aria-haspopup="true" aria-expanded="false"
+              tabindex="0">กองทุนสำรองเลี้ยงชีพ</a>
+          </li>
+          <li
+            class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-megamenu mega-menu-item-has-children mega-align-bottom-left mega-menu-megamenu mega-menu-item-21"
+            id="mega-menu-item-21">
+            <a class="mega-menu-link" href="/estate-fund-inform-main/" aria-haspopup="true" aria-expanded="false"
+              tabindex="0">กองทุนรวมอสังหาฯ/โครงสร้างพื้นฐาน/รีทส์</a>
+
+          </li>
+          <li
+            class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-menu-item-3385"
+            id="mega-menu-item-3385">
+            <a class="mega-menu-link" href="/trustee/" tabindex="0">ธุรกิจทรัสตี</a>
+          </li>
+          <li
+            class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-menu-item-has-children mega-menu-megamenu mega-align-bottom-left mega-menu-grid mega-menu-item-3386"
+            id="mega-menu-item-3386">
+            <a class="mega-menu-link" href="#" aria-haspopup="true" aria-expanded="false"
+              tabindex="0">นักลงทุนสัมพันธ์<span class="mega-indicator"></span></a>
+            <ul class="mega-sub-menu">
+              <li class="mega-menu-row" id="mega-menu-3386-0">
+                <ul class="mega-sub-menu">
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-3386-0-0">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-20"
+                        id="mega-menu-item-custom_html-20">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>ข้อมูลบริษัท</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/history/"><span class="s1"
+                                  style="color: #333333">ความเป็นมา</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/stock-price/"><span class="s1"
+                                  style="color: #333333">ข้อมูลหลักทรัพย์</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/history/"><span class="s1"
+                                  style="color: #333333">วิสัยทัศน์บริษัท</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/shareholder/"><span class="s1"
+                                  style="color: #333333">โครงสร้างผู้ถือหุ้น</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/boarddirectors/"><span class="s1"
+                                  style="color: #333333">คณะกรรมการ/คณะจัดการ</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" id="OrgChart"
+                                href="https://documents.mfcfund.com/Website/Others/OrgChart 20200528.pdf"
+                                target="_blank"><span class="s1" style="color: #333333">โครงสร้างการจัดการ</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/award/"><span class="s1"
+                                  style="color: #333333">รางวัลแห่งความสำเร็จ</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-3386-0-1">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-21"
+                        id="mega-menu-item-custom_html-21">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>การกำกับดูแลกิจการ</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/corporate-governance/"><span class="s1"
+                                  style="color: #333333">ข้อบังคับบริษัท</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/bussinessethics/"><span class="s1"
+                                  style="color: #333333">จรรยาบรรณการประกอบธุรกิจ</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/report-and-policy/"><span class="s1"
+                                  style="color: #333333">รายงานและนโยบาย</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/anticorruptionpolicy/"><span class="s1"
+                                  style="color: #333333">นโยบายต่อต้านคอร์รัปชั่น</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/investmentgovernancecode/"><span
+                                  class="s1" style="color: #333333">นโยบายธรรมาภิบาลการลงทุน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/privacy-policy/"><span class="s1"
+                                  style="color: #333333">นโยบายความเป็นส่วนตัว</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/sustainable-dev/"><span class="s1"
+                                  style="color: #333333">การพัฒนาเพื่อความยั่งยืน</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-3386-0-2">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-22"
+                        id="mega-menu-item-custom_html-22">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>ข้อมูลและรายงานทางการเงิน</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/financial-report/"><span class="s1"
+                                  style="color: #333333">รายงานทางการเงิน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/report-management-analysis/"><span
+                                  class="s1" style="color: #333333">รายงานและการวิเคราะห์ฝ่ายบริหาร</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/stockmarket-news/"><span class="s1"
+                                  style="color: #333333">ข่าวแจ้งตลาดหลักทรัพย์</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-3386-0-3">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-23"
+                        id="mega-menu-item-custom_html-23">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>เอกสารเผยแพร่</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/annual-report/"><span class="s1"
+                                  style="color: #333333">แบบ 56-1 One Report / รายงานประจำปี</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/annual-registration-statement/"><span
+                                  class="s1" style="color: #333333"></span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/sustainable-development/"><span
+                                  class="s1" style="color: #333333">รายงานการพัฒนาเพื่อความยั่งยืน</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/public-presentation/"><span class="s1"
+                                  style="color: #333333">ข้อมูลนำเสนอ (Public Presentation)</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="mega-menu-row" id="mega-menu-3386-1">
+                <ul class="mega-sub-menu">
+                  <li class="mega-menu-column mega-menu-columns-3-of-12" id="mega-menu-3386-1-0">
+                    <ul class="mega-sub-menu">
+                      <li
+                        class="mega-menu-item mega-menu-item-type-widget widget_custom_html mega-menu-item-custom_html-24"
+                        id="mega-menu-item-custom_html-24">
+                        <div class="textwidget custom-html-widget">
+                          <h4 class="p1" style="margin-bottom: 5px">
+                            <span class="s1" style="color: #af1217"><b>การประชุมผู้ถือหุ้น</b></span>
+                          </h4>
+                          <ul style="list-style-type: none; padding-left: 0px">
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/shareholdersmeeting/"><span class="s1"
+                                  style="color: #333333">หนังสือเชิญประชุมผู้ถือหุ้น</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/submit-questions-agenda/"><span
+                                  class="s1" style="color: #333333">ส่งคำถามเกี่ยวกับวาระการประชุม</span></a>
+                            </li>
+                            <li class="p2">
+                              <a style="font-size: 16px; color: #333333" href="/shareholder-meeting/"><span class="s1"
+                                  style="color: #333333">รายงานการประชุมผู้ถือหุ้น</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="menu-wrap">
+      <ul id="menu-top-menu-1" class="top-links accordion-menu show-arrow">
+        <li id="accordion-menu-item-1999"
+          class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-sub">
+          <a href="">บริการของเรา</a>
+          <span class="mega-indicator"></span>
+          <ul class="sub-menu">
+            <li id="accordion-menu-item-3576" class="menu-item menu-item-type-custom menu-item-object-custom">
+              <a href="https://data-i.mfcfund.com/Login.aspx" target="_blank">บริการสำหรับบริษัทคู่ค้า</a>
+            </li>
+            <li id="accordion-menu-item-1990" class="menu-item menu-item-type-post_type menu-item-object-page">
+              <a href="/mfcsmartservices/">MFC Smart Services</a>
+            </li>
+            <li id="accordion-menu-item-1991" class="menu-item menu-item-type-post_type menu-item-object-page">
+              <a href="/howtoopenaccount/">การเปิดบัญชีกองทุนรวม</a>
+            </li>
+            <li id="accordion-menu-item-1992" class="menu-item menu-item-type-post_type menu-item-object-page">
+              <a href="/paymentchannels/">ช่องทางการชำระเงินค่าซื้อ-ขายหน่วยลงทุน</a>
+            </li>
+            <li id="accordion-menu-item-1993" class="menu-item menu-item-type-post_type menu-item-object-page">
+              <a href="/riskprofile/">แบบประเมินความเสี่ยง</a>
+            </li>
+            <li id="accordion-menu-item-3734" class="menu-item menu-item-type-custom menu-item-object-custom">
+              <a href="/sellingagent-bank/">ผู้สนับสนุนการขายและซื้อคืน</a>
+            </li>
+            <li id="accordion-menu-item-1997" class="menu-item menu-item-type-post_type menu-item-object-page">
+              <a href="/alwaysfund/">DCA</a>
+            </li>
+          </ul>
+        </li>
+        <li id="accordion-menu-item-3364" class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a href="/contactus/">ติดต่อเรา</a>
+        </li>
+        <li id="accordion-menu-item-3351"
+          class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-sub">
+          <a href="#">เข้าสู่ระบบ</a>
+          <span class="arrow"></span>
+          <ul class="sub-menu">
+            <li id="accordion-menu-item-3936" class="menu-item menu-item-type-custom menu-item-object-custom">
+              <a href="https://smarttrade.mfcfund.com/">Smart Trade</a>
+            </li>
+            <li id="accordion-menu-item-3935" class="menu-item menu-item-type-custom menu-item-object-custom">
+              <a href="https://pvd.mfcfund.com/">PVD Online</a>
+            </li>
+            <li id="accordion-menu-item-3354" class="menu-item menu-item-type-post_type menu-item-object-page">
+              <a href="/howtoopenaccount/">Account Openning</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="share-links">
+      <a target="_blank" rel="nofollow" class="share-facebook" href="https://www.facebook.com/mfcfunds"
+        title="Facebook"></a>
+      <a target="_blank" rel="nofollow" class="share-twitter" href="https://twitter.com/mfcfunds" title="Twitter"></a>
+      <a target="_blank" rel="nofollow" class="share-youtube" href=" https://www.youtube.com/c/MFCAssetManagementPLC"
+        title="Youtube"></a>
+    </div>
+  </div>
+  <script type="text/html" id="wpb-modifications"></script>
+  <script id="porto-live-search-js-extra">
+    var porto_live_search = { nonce: "b7dfc074f6" };
+  </script>
+  <script src="/wp-content/themes/porto/inc/lib/live-search/live-search.js?ver=6.0.6"
+    id="porto-live-search-js"></script>
+  <script src="/wp-includes/js/hoverIntent.min.js?ver=1.10.2" id="hoverIntent-js"></script>
+  <script id="megamenu-js-extra">
+    var megamenu = { timeout: "300", interval: "100" };
+  </script>
+  <script src="/wp-content/plugins/megamenu/js/maxmegamenu.js?ver=2.9.8" id="megamenu-js"></script>
+  <script src="/wp-includes/js/comment-reply.min.js?ver=6.0.2" id="comment-reply-js"></script>
+  <script src="/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=6.6.0"
+    id="wpb_composer_front_js-js"></script>
+  <script src="/wp-content/themes/porto/js/libs/popper.min.js?ver=1.12.5" id="popper-js"></script>
+  <!-- <script
+      src="/wp-content/themes/porto/js/bootstrap.js?ver=4.1.3"
+      id="bootstrap-js"
+    ></script> -->
+  <script src="/wp-content/themes/porto/js/libs/jquery.cookie.min.js?ver=1.4.1" id="jquery-cookie-js"></script>
+  <script src="/wp-content/themes/porto/js/libs/owl.carousel.min.js?ver=2.3.4" id="owl.carousel-js"></script>
+  <script src="/wp-content/themes/porto/js/libs/jquery.fitvids.min.js?ver=1.1" id="jquery-fitvids-js"></script>
+  <script src="/wp-content/themes/porto/js/libs/jquery.matchHeight.min.js" id="jquery-matchHeight-js"></script>
+  <script async="async" src="/wp-content/themes/porto/js/libs/modernizr.js?ver=2.8.3" id="modernizr-js"></script>
+  <script async="async" src="/wp-content/themes/porto/js/libs/jquery.magnific-popup.min.js?ver=1.1.0"
+    id="jquery-magnific-popup-js"></script>
+  <script src="/wp-content/themes/porto/js/libs/jquery.waitforimages.min.js?ver=2.0.2"
+    id="jquery-waitforimages-js"></script>
+  <script id="porto-theme-js-extra">
+    var js_porto_vars = {
+      rtl: "",
+      theme_url: "https:\/\/mfcfund.com\/wp-content\/themes\/porto",
+      ajax_url: "https:\/\/mfcfund.com\/wp-admin\/admin-ajax.php",
+      change_logo: "1",
+      container_width: "1140",
+      grid_gutter_width: "30",
+      show_sticky_header: "1",
+      show_sticky_header_tablet: "",
+      show_sticky_header_mobile: "",
+      ajax_loader_url:
+        "\/\/mfcweb.podsable.com\/wp-content\/themes\/porto\/images\/ajax-loader@2x.gif",
+      category_ajax: "",
+      prdctfltr_ajax: "",
+      slider_loop: "1",
+      slider_autoplay: "1",
+      slider_autoheight: "1",
+      slider_speed: "5000",
+      slider_nav: "",
+      slider_nav_hover: "1",
+      slider_margin: "",
+      slider_dots: "1",
+      slider_animatein: "",
+      slider_animateout: "",
+      product_thumbs_count: "4",
+      product_zoom: "1",
+      product_zoom_mobile: "1",
+      product_image_popup: "1",
+      zoom_type: "inner",
+      zoom_scroll: "1",
+      zoom_lens_size: "200",
+      zoom_lens_shape: "square",
+      zoom_contain_lens: "1",
+      zoom_lens_border: "1",
+      zoom_border_color: "#888888",
+      zoom_border: "0",
+      screen_lg: "1170",
+      mfp_counter: "%curr% of %total%",
+      mfp_img_error: '<a href="%url%">The image<\/a> could not be loaded.',
+      mfp_ajax_error: '<a href="%url%">The content<\/a> could not be loaded.',
+      popup_close: "Close",
+      popup_prev: "Previous",
+      popup_next: "Next",
+      request_error:
+        "The requested content cannot be loaded.<br\/>Please try again later.",
+      loader_text: "Loading...",
+      submenu_back: "Back",
+      porto_nonce: "66d6edc696",
+      use_skeleton_screen: [],
+      user_edit_pages: "",
+    };
+  </script>
+  <script src="/wp-content/themes/porto/js/theme.js?ver=6.0.6" id="porto-theme-js"></script>
+  <script async="async" src="/wp-content/themes/porto/js/theme-async.js?ver=6.0.6" id="porto-theme-async-js"></script>
+  <!-- My Script -->
+  <script type="module" src="./unit-value-script.js"></script>
+  <script src="./mobile-script.js"></script>
+  <!-- <script src="./checked.js"></script> -->
+  <script src="../haeder.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../footer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../lang.js" ></script>
+    <script src="/icon.js"></script>
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/icon.js"></script>
+
+  <!-- ​Cookie -->
+  <script src="../assets/uat_link.js"></script>
+  <script src="/icon.js"></script>
+  <script src="https://cdn.onefence.co/sp.cookie.min.js" type="text/javascript"></script>
+  <script
+    src="https://api.onefence.co/cookiev2/js?key=5d888963-ffb2-11ef-a08e-073efbd083e4&lang=auto"></script>
+
+  <script>
+    // import * as api from "/assets/index.js"; 
+    const url = `https://did-web.mfcfund.com/webservice_app/api`;;
+
+    let fc = [];
+    let fundcode;
+
+    checkboxes = async (codefund) => {
+      let checkbox = document.querySelector(`#${codefund}`);
+      const rowfixed = document.getElementById('row-fixed-bottom');
+      console.log(checkbox);
+      let arrlength = fc.length;
+      if (fc[0] == undefined) {
+        fc = [];
+      }
+      if (arrlength == 0) {
+        console.log("ยังไม่มีค่า");
+        fc.push(codefund);
+        console.log(fc);
+        createCheckList(fc);
+        // rowfixed.style.display = 'none'
+      } else if (codefund === fc[0] || codefund === fc[1]) {
+        console.log("กดซ้ำ");
+        checkbox.checked = false;
+        const index = fc.indexOf(codefund);
+        if (index > -1) {
+          fc.splice(index, 1);
+        }
+        console.log(fc);
+        createCheckList(fc);
+      } else if (arrlength > 1) {
+        console.log("มากกว่า 2 ");
+        checkbox.checked = false;
+        const index = fc.indexOf(codefund);
+        if (index > -1) {
+          fc.splice(index, 1);
+        }
+        console.log(fc);
+      } else {
+        fc.push(codefund);
+        console.log(fc);
+        createCheckList(fc);
+        rowfixed.style.display = 'block'
+      }
+    };
+
+
+
+    const createCheckList = (fc) => {
+      fetch(`${url}/nav/GetNAV_FundType/Fund/Mobile%20App?_type=All`, {
+        method: "POST",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const Fund = data.NAVFund;
+          Fund.map((item) => {
+            // console.log(fc[0]);
+            // console.log(fc[1]);
+            if (fc[0] == item.FundCode) {
+              // element
+              const Style = document.getElementById('fund-cb-1');
+              const CloseFund = document.getElementById("btn-close1");
+              const FundCode = document.getElementById("fund-code");
+              const NameTH = document.getElementById("fund-name-th");
+
+              // set event close
+              // CloseFund.setAttribute('onclick',checkboxes(fc[0]));
+              CloseFund.addEventListener("click", () => {
+                checkboxes(fc[0]);
+              });
+
+              // text
+              CloseFund.innerText = `x`;
+              FundCode.innerText = item.FundCode;
+              NameTH.innerText = item.FundNameTH;
+
+              // style
+              Style.style.border = 'none';
+              FundCode.style.color = '#911a2a';
+
+              // link
+              const link = document.querySelector("#link-compare-fund");
+              link.href = `/compare-funds/?fc=${fc[0]}`;
+            } else if (fc[0] == undefined) {
+
+              // element
+              const Style = document.getElementById('fund-cb-1');
+              const CloseFund = document.getElementById("btn-close1");
+              const FundCode = document.getElementById("fund-code");
+              const NameTH = document.getElementById("fund-name-th");
+
+              // text
+              FundCode.innerText = "กองทุนที่ 1";
+              CloseFund.innerText = ``;
+              NameTH.innerText = "";
+
+              // style
+              Style.style.border = '#666666 1px dashed'
+              FundCode.style.color = '#666666'
+
+              // link
+              const link = document.querySelector("#link-compare-fund");
+              link.href = `/compare-funds/`;
+            }
+            if (fc[1] == item.FundCode) {
+              // console.log(item);
+
+              // element
+              const Style = document.getElementById('fund-cb-2');
+              const CloseFund = document.getElementById("btn-close2");
+              const FundCode = document.getElementById("fund-code-2");
+              const NameTH = document.getElementById("fund-name-th-2");
+
+              // text
+              CloseFund.innerText = `x`;
+              FundCode.innerText = item.FundCode;
+              NameTH.innerText = item.FundNameTH;
+
+              CloseFund.addEventListener("click", () => {
+                checkboxes(fc[1]);
+              });
+
+              // style
+              Style.style.border = 'none';
+              FundCode.style.color = '#911a2a';
+
+              //link
+              const link = document.querySelector("#link-compare-fund");
+              link.href = `/compare-funds/?fc=${fc[0]}?cf=${fc[1]}`;
+            } else if (fc[1] == undefined) {
+              // console.log(item);
+
+              // element
+              const Style = document.getElementById('fund-cb-2');
+              const CloseFund = document.getElementById("btn-close2");
+              const FundCode = document.getElementById("fund-code-2");
+              const NameTH = document.getElementById("fund-name-th-2");
+
+              // text
+              FundCode.innerText = "กองทุนที่ 2";
+              NameTH.innerText = "";
+              CloseFund.innerText = ``;
+
+              // style
+              Style.style.border = '#666666 1px dashed'
+              FundCode.style.color = '#666666'
+            }
+          });
+        })
+        .catch((err) => console.log(err));
+    };
+
+    const removeCheckBox = (code) => {
+      let checkbox = document.querySelector(`#${code}`);
+      checkbox.checked = false;
+    };
+  </script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"2f38f188500d40e0a503649e9309463e","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+</html>

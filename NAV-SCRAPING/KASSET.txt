@@ -1,0 +1,180 @@
+using CsvHelper;
+using HtmlAgilityPack;
+using System.Globalization;
+using System.Text;
+using System.Text.Json;
+using System.Net;
+
+// Define the data model for CSV output
+public class FundData
+{
+    public string Category { get; set; } = "";
+    public string Fund { get; set; } = "";
+    public string FundCode { get; set; } = "";
+    public string Date { get; set; } = "";
+    public string NAV { get; set; } = "";
+    public string Currency { get; set; } = "THB";
+    public string Change { get; set; } = "";
+    public string ChangePct { get; set; } = "";
+    public string Offer { get; set; } = "";
+    public string Bid { get; set; } = "";
+    public string TotalNetAsset { get; set; } = "";
+    public string Source { get; set; } = "";
+}
+
+// Define classes for JSON deserialization
+public class RootObject
+{
+    public string category_table { get; set; }
+    public string category_id { get; set; }
+    public List<RawFundData> table_fund { get; set; }
+}
+
+public class RawFundData
+{
+    public string FND_CD { get; set; } // Fund Code
+    public string FND_DSC_TH { get; set; } // Thai Name
+    public string R18_NAV_DATE { get; set; }
+    public string R18_NAV { get; set; }
+    public string R18_NAV_PAST { get; set; }
+    public string R18_NAV_OFFER { get; set; } // Offer
+    public string R18_NAV_BID { get; set; } // Bid
+    public string R18_TODAY_NET_ASSET { get; set; }
+    public string Currency { get; set; }
+}
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        Console.WriteLine("Starting scraper...");
+        string url = "https://www.kasikornasset.com/kasset/th/mutual-fund/investment-policy/Pages/index.aspx";
+        
+        // 1. Fetch HTML
+        using var client = new HttpClient();
+        // Add fake headers to avoid being blocked
+        client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+        
+        Console.WriteLine($"Fetching content from {url}...");
+        string html = "";
+        try 
+        {
+            html = await client.GetStringAsync(url);
+        }
+        catch(Exception ex)
+        {
+             Console.WriteLine($"Error fetching URL: {ex.Message}");
+             return;
+        }
+
+        // 2. Parse HTML to find the hidden input
+        var doc = new HtmlDocument();
+        doc.LoadHtml(html);
+
+        var hiddenInput = doc.GetElementbyId("hdnxx");
+        if (hiddenInput == null)
+        {
+            Console.WriteLine("Error: Could not find element with id 'hdnxx'. The site structure might have changed.");
+            return;
+        }
+
+        string jsonVal = hiddenInput.GetAttributeValue("value", "");
+        if (string.IsNullOrEmpty(jsonVal))
+        {
+            Console.WriteLine("Error: 'hdnxx' value is empty.");
+            return;
+        }
+
+        // 3. Decode HTML entities (e.g. &quot; -> ")
+        string decodedJson = WebUtility.HtmlDecode(jsonVal);
+        
+        // Trim any potential whitespace
+        decodedJson = decodedJson.Trim();
+
+        // 4. Parse JSON
+        List<RootObject> data = new List<RootObject>();
+        try
+        {
+            data = JsonSerializer.Deserialize<List<RootObject>>(decodedJson) ?? new List<RootObject>();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error parsing JSON: {ex.Message}");
+            // Dump the first 100 chars to debug
+            Console.WriteLine($"JSON Start: {decodedJson.Substring(0, Math.Min(100, decodedJson.Length))}");
+            return;
+        }
+
+        Console.WriteLine($"Found {data.Count} categories.");
+
+        var allFunds = new List<FundData>();
+
+        foreach (var category in data)
+        {
+            Console.WriteLine($"Processing Category: {category.category_id} ({category.table_fund?.Count ?? 0} funds)");
+            
+            if (category.table_fund == null) continue;
+
+            foreach (var raw in category.table_fund)
+            {
+                // Calculate Change logic matching the website's JS
+                // change_value = (value - pastValue).toFixed(4);
+                // change_percent = ((change_value / pastValue) * 100).toFixed(4);
+                
+                decimal nav = 0;
+                decimal navPast = 0;
+                decimal change = 0;
+                decimal changePct = 0;
+                
+                bool hasNav = decimal.TryParse(raw.R18_NAV, out nav);
+                bool hasPast = decimal.TryParse(raw.R18_NAV_PAST, out navPast);
+                
+                string changeStr = "";
+                string changePctStr = "";
+
+                if (hasNav && hasPast && navPast != 0)
+                {
+                    change = nav - navPast;
+                    changePct = (change / navPast) * 100;
+                    changeStr = change.ToString("F4");
+                    changePctStr = changePct.ToString("F4");
+                }
+
+                // Format Date: website uses DD-MM-YYYY
+                string dateStr = raw.R18_NAV_DATE;
+                if(DateTime.TryParse(raw.R18_NAV_DATE, out DateTime dt))
+                {
+                    dateStr = dt.ToString("dd-MM-yyyy");
+                }
+
+                var fund = new FundData
+                {
+                    Category = category.category_id,
+                    Fund = raw.FND_DSC_TH,
+                    FundCode = raw.FND_CD,
+                    Date = dateStr,
+                    NAV = hasNav ? nav.ToString("F4") : raw.R18_NAV,
+                    Currency = !string.IsNullOrEmpty(raw.Currency) ? raw.Currency : "THB",
+                    Change = changeStr,
+                    ChangePct = changePctStr,
+                    Offer = raw.R18_NAV_OFFER == "N/A" ? "" : raw.R18_NAV_OFFER,
+                    Bid = raw.R18_NAV_BID == "N/A" ? "" : raw.R18_NAV_BID,
+                    TotalNetAsset = raw.R18_TODAY_NET_ASSET,
+                    Source = url
+                };
+                
+                allFunds.Add(fund);
+            }
+        }
+
+        // 5. Write to CSV
+        string csvPath = "kasset_funds_full.csv";
+        using (var writer = new StreamWriter(csvPath, false, Encoding.UTF8))
+        using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+        {
+            csv.WriteRecords(allFunds);
+        }
+
+        Console.WriteLine($"Done. Scraped {allFunds.Count} records to {csvPath}");
+    }
+}
