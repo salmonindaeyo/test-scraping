@@ -12,10 +12,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["NAV-SCRAPING.WEB.csproj", "."]
-RUN dotnet restore "./NAV-SCRAPING.WEB.csproj"
+COPY ["NAV-SCRAPING-WEB/NAV-SCRAPING.WEB.csproj", "NAV-SCRAPING-WEB/"]
+RUN dotnet restore "./NAV-SCRAPING-WEB/NAV-SCRAPING.WEB.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/NAV-SCRAPING-WEB"
 RUN dotnet build "./NAV-SCRAPING.WEB.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
